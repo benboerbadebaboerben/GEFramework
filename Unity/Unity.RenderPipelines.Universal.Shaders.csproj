@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{29FA1059-9757-9C19-985B-FC9FC473328E}</ProjectGuid>
+    <ProjectGuid>{060E532F-A7CC-1A16-01B9-0629A5A15367}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Unity.Mono</AssemblyName>
+    <AssemblyName>Unity.RenderPipelines.Universal.Shaders</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +35,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -53,282 +53,105 @@
     <UnityVersion>2020.3.14f1c1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Type_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\MultiMapSet.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_IO_Stream_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Type_List_1_Object_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\UnOrderMultiMap.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_IDisposable_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Text_StringBuilder_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\Mongo\BsonIgnoreAttribute.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ListComponent_1_ETTask_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Action_1_Boolean_Binding.cs" />
-    <Compile Include="Assets\Mono\Helper\AssetsBundleHelper.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_BitConverter_Binding.cs" />
-    <Compile Include="Assets\Mono\MonoBehaviour\Init.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Action_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_MultiMap_2_Int64_Int64_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int32_Int64_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_Object_Binding_Enumera.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Networking_DownloadHandler_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ListComponent_1_String_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_TextAsset_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\Helper\EnumHelper.cs" />
-    <Compile Include="Assets\Mono\Core\ListComponent.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_KeyValuePair_2_String_ILTypeInstance_Bindi.cs" />
-    <Compile Include="Assets\Mono\Core\TimeInfo.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Action_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Type_Type_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_UInt16_Type_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_Type_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_KeyValuePair_2_Int64_List_1_Int64_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_HashSet_1_Type_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_HashSet_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\Mongo\BsonIgnoreExtraElementsAttribute.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETTaskHelper_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\HashSetComponent.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_ValueTuple_2_UInt16_MemoryStream_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ListComponent_1_Task_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\ThreadSynchronizationContext.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Linq_Enumerable_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETCancellationToken_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_SortedDictionary_2_Int32_ILTypeInstance_Bi_t1.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int32_ILTypeInstance_Binding_.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ProtoBuf_Meta_TypeModel_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_AService_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\Message\RpcException.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\ILStaticMethod.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETAsyncTaskMethodBuilder_1_Object_Array_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_ETTask_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETTaskCompleted_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ComponentView_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\IDisposableAdapter.cs" />
-    <Compile Include="Assets\Mono\Module\NetworkTCP\WChannel.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ErrorCore_Binding.cs" />
-    <Compile Include="Assets\Mono\MonoBehaviour\UILayerScript.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int32_ILTypeInstance_Binding__t2.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETTask_1_Int32_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_String_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\Helper\ByteHelper.cs" />
-    <Compile Include="Assets\Mono\Helper\IStaticMethod.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_RpcException_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_UI_Button_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Type_ILTypeInstance_Binding_V_t1.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Task_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Exception_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ByteHelper_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_AnimatorControllerParameter_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Reflection_Assembly_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_UnOrderMultiMap_2_Type_Object_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\Helper\JsonHelper.cs" />
-    <Compile Include="Assets\Mono\MonoBehaviour\GizmosDebug.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int32_List_1_ILTypeInstance_B.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_AnimationClip_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_UILayerScript_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_ValueTuple_3_Int32_Int64_Int32_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Mathf_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_KeyValuePair_2_Type_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Action_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_String_Array_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Int32_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Action_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_KeyValuePair_2_Int32_ILTypeInstance_Bindin.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_PathHelper_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\NetworkTCP\TChannel.cs" />
-    <Compile Include="Assets\Mono\Module\NetworkTCP\PacketParser.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_UnityWebRequest_Binding_Enumerator_.cs" />
-    <Compile Include="Assets\Mono\Core\Helper\ZipHelper.cs" />
-    <Compile Include="Assets\Mono\Helper\PathHelper.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_KeyValuePair_2_Int64_List_1_ILTypeInstance.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_IEnumerator_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Int64_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\Helper\MD5Helper.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Vector2_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_Dictionary_2_String_Ob.cs" />
-    <Compile Include="Assets\Mono\Module\Network\AService.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_AssetBundleCreateRequest_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\Helper\ObjectHelper.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_String_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_IO_Path_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Object_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Component_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_RaycastHit_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_RuntimeAnimatorController_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Type_ILTypeInstance_Binding_E.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_GameObject_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Type_Object_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\Network\KService.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_AssetBundleManifest_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ObjectHelper_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Math_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_UnityWebRequest_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_KeyValuePair_2_String_Int32_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_HashSet_1_AService_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_UInt16_List_1_ILTypeInstance_.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_Log_Binding.cs" />
-    <Compile Include="Assets\Mono\MonoBehaviour\ComponentView.cs" />
-    <Compile Include="Assets\Mono\Core\Options.cs" />
-    <Compile Include="Assets\Mono\Module\NetworkTCP\WService.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Resources_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_HashSet_1_String_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_CodeLoader_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_MultiMap_2_Int64_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_Object_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_SortedDictionary_2_Int32_ILTypeInstance_Bi.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Vector3_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ReferenceCollector_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_Byte_Array_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Physics_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Reflection_AssemblyName_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Single_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_AcceptAllCertificate_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Int64_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ListComponent_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETTask_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Quaternion_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_AssetBundle_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Events_UnityEvent_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\Mongo\BsonDictionaryOptionsAttribute.cs" />
-    <Compile Include="Assets\Mono\Core\Log\NLogger.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_AssetBundleRequest_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_StringHelper_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_KeyValuePair_2_Int64_ILTypeInstance_Bindin.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_AsyncOperation_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Queue_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\Helper\AcceptAllCertificate.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETAsyncTaskMethodBuilder_1_Boolean_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_IO_FileStream_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int32_ILTypeInstance_Binding__t1.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_DateTime_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int32_String_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\CLRBindings.cs" />
-    <Compile Include="Assets\Mono\Core\Helper\NetworkHelper.cs" />
-    <Compile Include="Assets\Mono\Core\DoubleMap.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_ILTypeInstance_Binding_t3.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Type_ILTypeInstance_Binding_V.cs" />
-    <Compile Include="Assets\Mono\Core\Helper\ProcessHelper.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_RandomHelper_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\Network\Circularbuffer.cs" />
-    <Compile Include="Assets\Mono\MonoBehaviour\ReferenceCollector.cs" />
-    <Compile Include="Assets\Mono\Core\Log\FileLogger.cs" />
-    <Compile Include="Assets\Mono\Core\MonoPool.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_Define_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Object_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Type_HashSet_1_Type_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\UnOrderMultiMapSet.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETAsyncTaskMethodBuilder_1_Int32_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Threading_Monitor_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_ILTypeInstance_Binding_t2.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_KeyValuePair_2_Type_Int32_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Queue_1_Int64_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_AnimationClip_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Runtime_CompilerServices_TaskAwaiter_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\Network\AChannel.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Activator_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\Mongo\BsonIdAttribute.cs" />
-    <Compile Include="Assets\Mono\Core\Helper\FileHelper.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_TService_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_IEnumerator_1_KeyValuePair_2_Type_Int32_Bi.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_JsonHelper_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int64_ILTypeInstance_Binding__t2.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETTask_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_TimeInfo_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_SortedDictionary_2_Int32_ILTypeInstance_Bi_t2.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int32_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Int64_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_Assembly_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\Helper\MathHelper.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_HashSet_1_UInt16_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_LayerMask_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int64_ILTypeInstance_Binding__t1.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_Assembly_Binding_Value.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Type_UInt16_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_NetworkHelper_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\TimeHelper.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Type_UnOrderMultiMap_2_Type_O.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Type_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Type_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Mono\CodeLoader.cs" />
-    <Compile Include="Assets\Mono\Core\Log\Log.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_UI_InputField_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Networking_UnityWebRequest_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETAsyncTaskMethodBuilder_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Object_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ThreadSynchronizationContext_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ILog_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_PlayerPrefs_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETTask_1_Object_Array_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int32_SortedDictionary_2_Int3.cs" />
-    <Compile Include="Assets\Mono\Core\MultiDictionary.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_MonoPool_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\Network\KChannel.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETAsyncTaskMethodBuilder_1_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\Helper\RandomHelper.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Camera_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_UnOrderMultiMapSet_2_Type_Type_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Object_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_SceneManagement_SceneManager_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_String_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\Mongo\BsonIgnoreIfDefaultAttribute.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int64_ILTypeInstance_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Type_Int32_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Type_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Type_Queue_1_ILTypeInstance_B.cs" />
-    <Compile Include="Assets\Mono\Core\Log\ILog.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETAsyncTaskMethodBuilder_1_AssetBundle_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\ILHelper.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Vector3_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\IAsyncStateMachineAdaptor.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int64_ILTypeInstance_Binding_.cs" />
-    <Compile Include="Assets\Mono\Module\Mongo\BsonElementAttribute.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETTask_1_Boolean_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_SortedDictionary_2_Int64_List_1_Int64_Bind_t1.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_Int32_Transform_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\NetworkTCP\TService.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ListComponent_1_Vector3_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_KeyValuePair_2_String_Object_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Int32_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_TimeHelper_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ProtoBuf_Meta_RuntimeTypeModel_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_ILTypeInstance_Binding_Enumerator_B.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Transform_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_Options_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_List_1_Vector3_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_String_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_Int32_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\Log\UnityLogger.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_HashSet_1_Type_Binding_Enumerator_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_ILTypeInstance_Binding_t1.cs" />
-    <Compile Include="Assets\Mono\Module\Mongo\BsonDefaultValueAttribute.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Reflection_MemberInfo_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Queue_1_ValueTuple_3_Int32_Int64_Int32_Bin.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ET_ETTask_1_AssetBundle_Binding.cs" />
-    <Compile Include="Assets\Mono\MonoBehaviour\CanvasConfig.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_SortedDictionary_2_Int64_List_1_ILTypeInst.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_IO_File_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\MultiMap.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_SortedDictionary_2_Int64_List_1_ILTypeInst_t1.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Input_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Threading_Tasks_Task_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_IEnumerable_1_KeyValuePair_2_Type_Int32_Bi.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_SortedDictionary_2_Int64_List_1_Int64_Bind.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_Dictionary_2_String_Assembly_Binding_Value_t1.cs" />
-    <Compile Include="Assets\Mono\Helper\MonoStaticMethod.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Array_Binding.cs" />
-    <Compile Include="Assets\Mono\Core\Helper\StringHelper.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\ProtoBuf_Serializer_Binding.cs" />
-    <Compile Include="Assets\Mono\Module\Mongo\BsonIgnoreIfNullAttribute.cs" />
-    <Compile Include="Assets\Mono\Module\Network\ErrorCore.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_IO_MemoryStream_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_HashSet_1_ILTypeInstance_Binding_Enumerato.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Animator_Binding.cs" />
-    <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_HashSet_1_AService_Binding_Enumerator_Bind.cs" />
-    <Compile Include="Assets\Mono\Define.cs" />
+    <Compile Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Shaders.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Mono\Unity.Mono.asmdef" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesSimpleLitForwardPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Terrain\TerrainLitMetaPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesSimpleLitInput.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\StopNaN.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\LitForwardPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Terrain\TerrainLitBase.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Nature\SpeedTree7Input.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\PaniniProjection.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Utils\Blit.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\2D\Shadow2DRemoveSelf.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\LitGBufferPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\2D\Sprite-Lit-Default.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\UnlitMetaPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\SubpixelMorphologicalAntialiasing.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Lit.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\2D\Include\LightingUtility.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesUnlitForwardPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesLitInput.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\2D\ShadowGroup2D.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\2D\Light2D-Point.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Nature\SpeedTree7Passes.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\BakedLitMetaPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Utils\Sampling.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesUnlit.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\XR\XROcclusionMesh.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Unity.RenderPipelines.Universal.Shaders.asmdef" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Terrain\WavingGrassPasses.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\FinalPost.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\LitInput.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Utils\Fullscreen.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Nature\SpeedTree7CommonInput.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Unlit.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\LutBuilderLdr.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesSimpleLit.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Nature\SpeedTree7CommonPasses.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\XR\XRMirrorView.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Terrain\WavingGrass.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Nature\SpeedTree8Passes.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\BakedLitInput.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Utils\CopyDepth.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Utils\FallbackError.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Terrain\TerrainDetailLit.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Utils\Universal2D.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Utils\CopyDepthPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesEditorPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesLit.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\DepthNormalsPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\2D\Light2D-Point-Volumetric.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\2D\Light2D-Shape.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\UberPost.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\UnlitInput.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\2D\Include\CombinedShapeLightShared.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Utils\ScreenSpaceAmbientOcclusion.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesLitForwardPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Terrain\TerrainLitInput.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Terrain\WavingGrassBillboard.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Terrain\TerrainLit.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Nature\SpeedTree7BillboardInput.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Nature\SpeedTree8.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\2D\Include\NormalsRenderingShared.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Utils\StencilDeferred.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Nature\SpeedTree8Input.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\DepthOnlyPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Terrain\TerrainLitAdd.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesInput.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\BokehDepthOfField.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\ShadowCasterPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Terrain\WavingGrassInput.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesSimpleLitGBufferPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\Common.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Nature\SpeedTree7BillboardPasses.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\BakedLit.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\SubpixelMorphologicalAntialiasingBridge.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesLitGbufferPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\LitMetaPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\LutBuilderHdr.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Particles\ParticlesUnlitInput.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\SimpleLit.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Terrain\TerrainLitPasses.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\SimpleLitInput.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\XR\XRMirrorView.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\CameraMotionBlur.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\GaussianDepthOfField.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Nature\SpeedTree7Billboard.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\2D\Light2D-Shape-Volumetric.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\SimpleLitForwardPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\ComplexLit.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Nature\SpeedTree7.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Utils\ScreenSpaceShadows.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\SubpixelMorphologicalAntialiasing.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\PostProcessing\Bloom.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Utils\MaterialError.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\SimpleLitGBufferPass.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Terrain\TerrainLitBasemapGen.shader" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\Utils\Deferred.hlsl" />
+    <None Include="Library\PackageCache\com.unity.render-pipelines.universal@10.8.1\Shaders\SimpleLitMetaPass.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -927,10 +750,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.ThirdParty.csproj">
-      <Project>{E15BADD2-3A26-309A-AB0F-DC5B08044350}</Project>
-      <Name>Unity.ThirdParty</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
