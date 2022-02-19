@@ -25,7 +25,7 @@ namespace ET
             }
         }
 
-        public static ETReferencePool ObjectPool => ETReferencePool.Instance;
+        public static ObjectPool ObjectPool => ObjectPool.Instance;
 
         public static IdGenerater IdGenerater => IdGenerater.Instance;
 
