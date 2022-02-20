@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace ET
 {
-    public class UIGroup : Entity
+    /// <summary>
+    /// 初始化界面组的新实例。
+    /// </summary>
+    /// <param name="name">界面组名称。</param>
+    /// <param name="depth">界面组深度。</param>
+    public class UIGroup : Entity,IAwake<string,int>
     {
+        public string m_Name;
+        public int m_Depth;
+        public bool m_Pause;
+        public GameFrameworkLinkedList<UIForm> m_UIFormInfos = new GameFrameworkLinkedList<UIForm>();
+        public LinkedListNode<UIForm> m_CachedNode;
     }
 }

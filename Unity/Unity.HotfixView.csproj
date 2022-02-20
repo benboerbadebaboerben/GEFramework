@@ -83,6 +83,21 @@
     <Compile Include="Codes\HotfixView\Module\UI\UIEventComponentSystem.cs" />
     <Compile Include="Codes\HotfixView\Module\UI\UIFormSystem.cs" />
     <Compile Include="Codes\HotfixView\Module\UI\UIGroupSystem.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Assembly.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Compression.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Compression.ICompressionHelper.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Converter.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Encryption.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Json.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Json.IJsonHelper.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Marshal.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Path.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Random.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Text.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Text.ITextHelper.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Verifier.Crc32.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\Utility.Verifier.cs" />
     <Reference Include="UnityEngine">
       <HintPath>./Temp/bin/Debug/UnityEngine.dll</HintPath>
     </Reference>
@@ -643,6 +658,7 @@
       <Name>Unity.ThirdParty</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
