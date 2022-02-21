@@ -321,9 +321,9 @@ namespace ET
                 self.m_CachedNode = self.m_CachedNode.Next;
             }
 
-            if (!m_UIFormInfos.Remove(uiFormInfo))
+            if (!self.m_UIFormInfos.Remove(uiFormInfo))
             {
-                throw new GameFrameworkException(Utility.Text.Format("UI group '{0}' not exists specified UI form '[{1}]{2}'.", m_Name, uiForm.SerialId, uiForm.UIFormAssetName));
+                throw new GameFrameworkException(Utility.Text.Format("UI group '{0}' not exists specified UI form '[{1}]{2}'.", self.m_Name, uiForm.m_SerialId, uiForm.m_UIFormAssetName));
             }
             uiFormInfo.Dispose();
         }

@@ -29,7 +29,7 @@
     <DefineConstants>DEBUG;TRACE;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -38,7 +38,7 @@
     <OutputPath>Temp\Bin\Release\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
@@ -83,6 +83,7 @@
     <Compile Include="Codes\HotfixView\Module\UI\UIEventComponentSystem.cs" />
     <Compile Include="Codes\HotfixView\Module\UI\UIFormSystem.cs" />
     <Compile Include="Codes\HotfixView\Module\UI\UIGroupSystem.cs" />
+    <Compile Include="Codes\HotfixView\Module\Utility\UnityExtension.cs" />
     <Compile Include="Codes\HotfixView\Module\Utility\Utility.Assembly.cs" />
     <Compile Include="Codes\HotfixView\Module\Utility\Utility.Compression.cs" />
     <Compile Include="Codes\HotfixView\Module\Utility\Utility.Compression.ICompressionHelper.cs" />
