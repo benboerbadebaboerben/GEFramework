@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace ET
 {
@@ -15,13 +17,16 @@ namespace ET
             {
                 Log.Error("UI group name is invalid.");
             }
-
+            self.m_CachedCanvas = self.obj.GetOrAddComponent<Canvas>();
+            self.obj.GetOrAddComponent<GraphicRaycaster>();
             self.m_Name = name;
             self.m_Pause = false;
             self.m_Depth = depth;
             self.m_CachedNode = null;
+
             self.m_UIFormInfos.Clear();
         }
+
     }
     public static class UIGroupSystem
     {
@@ -38,13 +43,12 @@ namespace ET
             LinkedListNode<UIForm> current = self.m_UIFormInfos.First;
             while (current != null)
             {
-                if (current.Value.m_Pause)
+                if (current.Value.m_Paused)
                 {
                     break;
                 }
 
                 self.m_CachedNode = current.Next;
-                current.Value.OnUpdate(elapseSeconds, realElapseSeconds);
                 current = self.m_CachedNode;
                 self.m_CachedNode = null;
             }
@@ -77,7 +81,8 @@ namespace ET
             }
 
             self.m_Depth = depth;
-            UIGroupHelper.SetDepth(self.m_Depth);
+            self.m_CachedCanvas.overrideSorting = true;
+            self.m_CachedCanvas.sortingOrder = self.DepthFactor * depth;
             self.Refresh();
         }
 
@@ -289,7 +294,9 @@ namespace ET
         /// <param name="uiForm">要增加的界面。</param>
         public static void AddUIForm(this UIGroup self, UIForm uiForm)
         {
-            self.m_UIFormInfos.AddFirst(uiForm.Create(uiForm));
+            uiForm.m_Paused = true;
+            uiForm.m_Covered = true;
+            self.m_UIFormInfos.AddFirst(uiForm);
         }
 
         /// <summary>
@@ -301,7 +308,7 @@ namespace ET
             UIForm uiFormInfo = self.GetUIFormInfo(uiForm);
             if (uiFormInfo == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("Can not find UI form info for serial id '{0}', UI form asset name is '{1}'.", uiForm.SerialId, uiForm.UIFormAssetName));
+                throw new GameFrameworkException(Utility.Text.Format("Can not find UI form info for serial id '{0}', UI form asset name is '{1}'.", uiForm.m_SerialId, uiForm.m_UIFormAssetName));
             }
 
             if (!uiFormInfo.m_Covered)
@@ -310,9 +317,9 @@ namespace ET
                 uiForm.OnCover();
             }
 
-            if (!uiFormInfo.m_Pause)
+            if (!uiFormInfo.m_Paused)
             {
-                uiFormInfo.m_Pause = true;
+                uiFormInfo.m_Paused = true;
                 uiForm.OnPause();
             }
 
@@ -353,11 +360,11 @@ namespace ET
             LinkedListNode<UIForm> current = self.m_UIFormInfos.First;
             bool pause = self.m_Pause;
             bool cover = false;
-            int depth = self.GetGroupDepth();
+            int depth = self.m_Depth;
             while (current != null && current.Value != null)
             {
                 LinkedListNode<UIForm> next = current.Next;
-                current.Value.OnDepthChanged(self.GetGroupDepth(), depth--);
+                current.Value.OnDepthChanged(self.m_Depth, depth--);
                 if (current.Value == null)
                 {
                     return;
@@ -375,9 +382,9 @@ namespace ET
                         }
                     }
 
-                    if (!current.Value.m_Pause)
+                    if (!current.Value.m_Paused)
                     {
-                        current.Value.m_Pause = true;
+                        current.Value.m_Paused = true;
                         current.Value.OnPause();
                         if (current.Value == null)
                         {
@@ -387,9 +394,9 @@ namespace ET
                 }
                 else
                 {
-                    if (current.Value.m_Pause)
+                    if (current.Value.m_Paused)
                     {
-                        current.Value.m_Pause = false;
+                        current.Value.m_Paused = false;
                         current.Value.OnResume();
                         if (current.Value == null)
                         {

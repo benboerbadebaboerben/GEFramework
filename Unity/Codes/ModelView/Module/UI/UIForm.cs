@@ -26,7 +26,7 @@ namespace ET
         /// 获取是否暂停被覆盖的界面。
         /// </summary>
         public bool m_PauseCoveredUIForm;
-        public bool m_Pause;
+        public bool m_Paused;
         public bool m_Covered;
         public bool m_Available = false;
         public bool m_Visible = false;

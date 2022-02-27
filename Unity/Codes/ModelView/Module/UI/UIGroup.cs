@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace ET
 {
@@ -13,6 +14,9 @@ namespace ET
     /// <param name="depth">界面组深度。</param>
     public class UIGroup : Entity,IAwake<string,int>
     {
+        public GameObject obj;
+        public Canvas m_CachedCanvas;
+        public readonly int DepthFactor = 10000;
         public string m_Name;
         public int m_Depth;
         public bool m_Pause;

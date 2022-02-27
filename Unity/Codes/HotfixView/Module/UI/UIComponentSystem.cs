@@ -23,7 +23,6 @@ namespace ET
                 UIForm uiForm = self.m_RecycleQueue.Dequeue();
                 uiForm.OnRecycle();
             }
-
             foreach (KeyValuePair<string, UIGroup> uiGroup in self.m_UIGroups)
             {
                 uiGroup.Value.Update(Time.deltaTime, Time.unscaledDeltaTime);
@@ -36,7 +35,56 @@ namespace ET
     /// </summary>
     public static class UIComponentSystem
 	{
-        
+        /// <summary>
+        /// 同步加载
+        /// </summary>
+        private static void LoadBaseWindows(this UIComponent self, string UIName)
+        {
+            ResourcesComponent.Instance.LoadBundle(UIName.StringToAB());
+            GameObject go = ResourcesComponent.Instance.GetAsset(UIName.StringToAB(), UIName) as GameObject;
+            //baseWindow.UIPrefabGameObject = UnityEngine.Object.Instantiate(go);
+            //baseWindow.UIPrefabGameObject.name = go.name;
+
+            //UIEventComponent.Instance.GetUIEventHandler(baseWindow.WindowID).OnInitWindowCoreData(baseWindow);
+
+            //baseWindow?.SetRoot(EUIRootHelper.GetTargetRoot(baseWindow.WindowData.windowType));
+            //baseWindow.uiTransform.SetAsLastSibling();
+
+            //UIEventComponent.Instance.GetUIEventHandler(baseWindow.WindowID).OnInitComponent(baseWindow);
+            //UIEventComponent.Instance.GetUIEventHandler(baseWindow.WindowID).OnRegisterUIEvent(baseWindow);
+
+            //self.AllWindowsDic[(int)baseWindow.WindowID] = baseWindow;
+        }
+
+        /// <summary>
+        /// 异步加载
+        /// </summary>
+        //private static async ETTask LoadBaseWindowsAsync(this UIComponent self, UIBaseWindow baseWindow)
+        //{
+
+        //    if (!UIPathComponent.Instance.WindowPrefabPath.TryGetValue((int)baseWindow.WindowID, out string value))
+        //    {
+        //        Log.Error($"{baseWindow.WindowID} is not Exist!");
+        //        return;
+        //    }
+        //    self.LoadingWindows.Add(baseWindow.WindowID);
+        //    await ResourcesComponent.Instance.LoadBundleAsync(value.StringToAB());
+        //    GameObject go = ResourcesComponent.Instance.GetAsset(value.StringToAB(), value) as GameObject;
+        //    baseWindow.UIPrefabGameObject = UnityEngine.Object.Instantiate(go);
+        //    baseWindow.UIPrefabGameObject.name = go.name;
+
+        //    UIEventComponent.Instance.GetUIEventHandler(baseWindow.WindowID).OnInitWindowCoreData(baseWindow);
+
+        //    baseWindow?.SetRoot(EUIRootHelper.GetTargetRoot(baseWindow.WindowData.windowType));
+        //    baseWindow.uiTransform.SetAsLastSibling();
+
+        //    UIEventComponent.Instance.GetUIEventHandler(baseWindow.WindowID).OnInitComponent(baseWindow);
+        //    UIEventComponent.Instance.GetUIEventHandler(baseWindow.WindowID).OnRegisterUIEvent(baseWindow);
+
+        //    self.AllWindowsDic[(int)baseWindow.WindowID] = baseWindow;
+        //    self.LoadingWindows.Remove(baseWindow.WindowID);
+        //}
+
         /// <summary>
         /// 获取界面组数量。
         /// </summary>

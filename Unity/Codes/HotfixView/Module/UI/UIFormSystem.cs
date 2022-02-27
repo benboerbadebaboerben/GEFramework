@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace ET
 {
@@ -17,30 +18,10 @@ namespace ET
 
     public static class UIFormSystem
     {
-        //不用UpdateSystem的原因：
-        //ET的做法是把所有关于Update塞到一个Action里面
-        //这样可能导致UI界面的Update调用顺序与其他模块混合
-        /// <summary>
-        /// 界面管理器轮询。
-        /// </summary>
-        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
-        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
-        public static void OnUpdate(this UIForm self, float elapseSeconds, float realElapseSeconds)
-        {
-            try
-            {
-                
-            }
-            catch (Exception exception)
-            {
-                Log.Error("UI form '[{0}]{1}' OnUpdate with exception '{2}'.", self.m_SerialId, self.m_UIFormAssetName, exception);
-            }
-        }
-
         /// <summary>
         /// 获取界面实例。
         /// </summary>
-        public static object Handle(this UIForm self)
+        public static GameObject Handle(this UIForm self)
         {
             return self.obj;
         }
@@ -73,22 +54,38 @@ namespace ET
         }
 
         /// <summary>
-        /// 界面回收。
+        /// 卸载指定的UI窗口实例
         /// </summary>
-        public static void OnRecycle(this UIForm self)
+        /// <param name="isDispose">是否卸载脚本本身。</param>
+        public static void OnRecycle(this UIForm self, bool isDispose = true)
         {
             try
             {
-                
+                if (null == self)
+                {
+                    Log.Error($"UIBaseWindow WindowId {self.m_UIFormAssetName} is null!!!");
+                    return;
+                }
+                if (self.obj != null)
+                {
+                    Game.Scene.GetComponent<ResourcesComponent>()?.UnloadBundle(self.m_UIFormAssetName.StringToAB());
+                    UnityEngine.Object.Destroy(self.obj);
+                    self.obj = null;
+                }
+                self.m_SerialId = 0;
+                self.m_DepthInUIGroup = 0;
+                self.m_PauseCoveredUIForm = true;
+                if (isDispose)
+                {
+                    self?.Dispose();
+                }
             }
             catch (Exception exception)
             {
                 Log.Error("UI form '[{0}]{1}' OnRecycle with exception '{2}'.", self.m_SerialId, self.m_UIFormAssetName, exception);
             }
 
-            self.m_SerialId = 0;
-            self.m_DepthInUIGroup = 0;
-            self.m_PauseCoveredUIForm = true;
+            
         }
 
         /// <summary>

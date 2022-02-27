@@ -133,7 +133,7 @@
       <HintPath>./Temp/bin/Debug/UnityEngine.ClusterRendererModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>./Temp/bin/Debug/UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>Temp\bin\Debug\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CrashReportingModule">
       <HintPath>./Temp/bin/Debug/UnityEngine.CrashReportingModule.dll</HintPath>
