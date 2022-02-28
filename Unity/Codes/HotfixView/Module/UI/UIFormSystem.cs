@@ -61,24 +61,7 @@ namespace ET
         {
             try
             {
-                if (null == self)
-                {
-                    Log.Error($"UIBaseWindow WindowId {self.m_UIFormAssetName} is null!!!");
-                    return;
-                }
-                if (self.obj != null)
-                {
-                    Game.Scene.GetComponent<ResourcesComponent>()?.UnloadBundle(self.m_UIFormAssetName.StringToAB());
-                    UnityEngine.Object.Destroy(self.obj);
-                    self.obj = null;
-                }
-                self.m_SerialId = 0;
-                self.m_DepthInUIGroup = 0;
-                self.m_PauseCoveredUIForm = true;
-                if (isDispose)
-                {
-                    self?.Dispose();
-                }
+                
             }
             catch (Exception exception)
             {

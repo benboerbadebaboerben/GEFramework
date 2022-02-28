@@ -32,5 +32,6 @@ namespace ET
         public bool m_Visible = false;
         public Transform m_CachedTransform = null;
         public int m_OriginalLayer = 0;
+        public object m_UserData;
     }
 }
