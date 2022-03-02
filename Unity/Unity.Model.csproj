@@ -49,7 +49,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Codes\Model\**\*.cs" />
     <Reference Include="UnityEngine">
       <HintPath>./Temp/bin/Debug/UnityEngine.dll</HintPath>
     </Reference>
@@ -584,6 +583,7 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>./Temp/bin/Debug/UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Compile Include="Codes\Model\**\*.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Mono.csproj">
@@ -604,3 +604,4 @@
   </Target>
   -->
 </Project>
+<!--2022/3/2 23:48:06-->

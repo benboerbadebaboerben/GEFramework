@@ -40,7 +40,7 @@ namespace ET
         /// <summary>
         /// 同步加载
         /// </summary>
-        public static GameObject LoadUIGameObject(this UIComponent self,string uiFormName)
+        public static GameObject LoadUIForm(this UIComponent self,string uiFormName)
         {
             ResourcesComponent.Instance.LoadBundle(uiFormName.StringToAB());
             GameObject go = ResourcesComponent.Instance.GetAsset(uiFormName.StringToAB(), uiFormName) as GameObject;
@@ -50,14 +50,49 @@ namespace ET
         /// <summary>
         /// 异步加载
         /// </summary>
-        public static async ETTask LoadUIGameObjectAsync(this UIComponent self, string uiFormName)
+        public static async void LoadUIFormAsync(this UIComponent self, string uiFormName,UIGroup uiGroup,int serialId, string uiFormAssetName, bool pauseCoveredUIForm, object userData)
         {
-            ResourcesComponent.Instance.LoadBundle(uiFormName.StringToAB());
-            GameObject ads = await Task.Run(() =>
+            await ResourcesComponent.Instance.LoadBundleAsync(uiFormName.StringToAB());
+            GameObject obj = ResourcesComponent.Instance.GetAsset(uiFormName.StringToAB(), uiFormName) as GameObject;
+            UIForm uiForm = uiGroup.AddChild<UIForm>();
+            uiForm.m_SerialId = serialId;
+            uiForm.m_PauseCoveredUIForm = pauseCoveredUIForm;
+            uiForm.m_UserData = userData;
+            uiForm.obj = obj;
+            try
             {
-                GameObject go = ResourcesComponent.Instance.GetAsset(uiFormName.StringToAB(), uiFormName) as GameObject;
-                return go;
-            });
+                if (obj == null)
+                {
+                    if (self.m_UIFormsToReleaseOnLoad.Contains(serialId))
+                    {
+                        self.m_UIFormsToReleaseOnLoad.Remove(serialId);
+                        return;
+                    }
+                    throw new GameFrameworkException("Open UI form info is invalid.");
+                }
+
+                Transform transform = obj.transform;
+                transform.SetParent(uiGroup.obj.transform);
+                transform.localScale = Vector3.one;
+
+                if (uiForm == null)
+                {
+                    Log.Error("Can not create UI form in UI form helper.");
+                }
+
+                self.m_UIFormsBeingLoaded.Remove(uiForm.m_SerialId);
+
+                uiForm.OnInit(serialId, uiFormAssetName, pauseCoveredUIForm, false, userData);
+                uiGroup.AddUIForm(uiForm);
+                uiForm.OnOpen(userData);
+                uiGroup.Refresh();
+                Game.EventSystem.Publish(new UICommonEventType.OpenUIFormSuccessEventArgs());
+            }
+            catch (Exception)
+            {
+                Game.EventSystem.Publish(new UICommonEventType.OpenUIFormFailureEventArgs());
+                throw;
+            }
         }
 
         /// <summary>
@@ -584,43 +619,10 @@ namespace ET
             }
 
             int serialId = ++self.m_Serial;
-
-            UIForm uiForm = uiGroup.AddChild<UIForm>();
-            uiForm.m_SerialId = serialId;
-            uiForm.m_PauseCoveredUIForm = pauseCoveredUIForm;
-            uiForm.m_UserData = userData;
-
-            GameObject obj = self.LoadUIGameObject(uiFormAssetName);
-            uiForm.obj = obj;
-            try
-            {
-                if (obj == null)
-                {
-                    throw new GameFrameworkException("Open UI form info is invalid.");
-                }
-
-                Transform transform = obj.transform;
-
-                transform.SetParent(uiGroup.obj.transform);
-                transform.localScale = Vector3.one;
-
-                if (uiForm == null)
-                {
-                    Log.Error("Can not create UI form in UI form helper.");
-                }
-
-                uiForm.OnInit(serialId, uiFormAssetName, pauseCoveredUIForm, false, userData);
-                uiGroup.AddUIForm(uiForm);
-                uiForm.OnOpen(userData);
-                uiGroup.Refresh();
-                Game.EventSystem.Publish(new UICommonEventType.OpenUIFormSuccessEventArgs());
-                return serialId;
-            }
-            catch (Exception)
-            {
-                Game.EventSystem.Publish(new UICommonEventType.OpenUIFormFailureEventArgs());
-                throw;
-            }
+            self.m_UIFormsBeingLoaded.Add(serialId, uiFormAssetName);
+            self.LoadUIFormAsync(uiFormAssetName, uiGroup, serialId, uiFormAssetName, pauseCoveredUIForm, userData);
+            return serialId;
+            
         }
 
         /// <summary>
@@ -747,13 +749,13 @@ namespace ET
         {
             if (uiForm == null)
             {
-                Log.Error("UI form is invalid.");
+                throw new GameFrameworkException("UI form is invalid.");
             }
 
             UIGroup uiGroup = uiForm.GetParent<UIGroup>();
             if (uiGroup == null)
             {
-                Log.Error("UI group is invalid.");
+                throw new GameFrameworkException("UI group is invalid.");
             }
 
             uiGroup.RefocusUIForm(uiForm, userData);
@@ -772,89 +774,6 @@ namespace ET
         /// </summary>
         /// <param name="uiFormInstance">要设置优先级的界面实例。</param>
         /// <param name="priority">界面实例优先级。</param>
-
-        //private void LoadAssetSuccessCallback(string uiFormAssetName, object uiFormAsset, float duration, object userData)
-        //{
-        //    OpenUIFormInfo openUIFormInfo = (OpenUIFormInfo)userData;
-        //    if (openUIFormInfo == null)
-        //    {
-        //        throw new GameFrameworkException("Open UI form info is invalid.");
-        //    }
-
-        //    if (m_UIFormsToReleaseOnLoad.Contains(openUIFormInfo.SerialId))
-        //    {
-        //        m_UIFormsToReleaseOnLoad.Remove(openUIFormInfo.SerialId);
-        //        ReferencePool.Release(openUIFormInfo);
-        //        m_UIFormHelper.ReleaseUIForm(uiFormAsset, null);
-        //        return;
-        //    }
-
-        //    m_UIFormsBeingLoaded.Remove(openUIFormInfo.SerialId);
-        //    UIFormInstanceObject uiFormInstanceObject = UIFormInstanceObject.Create(uiFormAssetName, uiFormAsset, m_UIFormHelper.InstantiateUIForm(uiFormAsset), m_UIFormHelper);
-        //    m_InstancePool.Register(uiFormInstanceObject, true);
-
-        //    InternalOpenUIForm(openUIFormInfo.SerialId, uiFormAssetName, openUIFormInfo.UIGroup, uiFormInstanceObject.Target, openUIFormInfo.PauseCoveredUIForm, true, duration, openUIFormInfo.UserData);
-        //    ReferencePool.Release(openUIFormInfo);
-        //}
-
-        //private void LoadAssetFailureCallback(string uiFormAssetName, LoadResourceStatus status, string errorMessage, object userData)
-        //{
-        //    OpenUIFormInfo openUIFormInfo = (OpenUIFormInfo)userData;
-        //    if (openUIFormInfo == null)
-        //    {
-        //        throw new GameFrameworkException("Open UI form info is invalid.");
-        //    }
-
-        //    if (m_UIFormsToReleaseOnLoad.Contains(openUIFormInfo.SerialId))
-        //    {
-        //        m_UIFormsToReleaseOnLoad.Remove(openUIFormInfo.SerialId);
-        //        return;
-        //    }
-
-        //    m_UIFormsBeingLoaded.Remove(openUIFormInfo.SerialId);
-        //    string appendErrorMessage = Utility.Text.Format("Load UI form failure, asset name '{0}', status '{1}', error message '{2}'.", uiFormAssetName, status, errorMessage);
-        //    if (m_OpenUIFormFailureEventHandler != null)
-        //    {
-        //        OpenUIFormFailureEventArgs openUIFormFailureEventArgs = OpenUIFormFailureEventArgs.Create(openUIFormInfo.SerialId, uiFormAssetName, openUIFormInfo.UIGroup.Name, openUIFormInfo.PauseCoveredUIForm, appendErrorMessage, openUIFormInfo.UserData);
-        //        m_OpenUIFormFailureEventHandler(this, openUIFormFailureEventArgs);
-        //        ReferencePool.Release(openUIFormFailureEventArgs);
-        //        return;
-        //    }
-
-        //    throw new GameFrameworkException(appendErrorMessage);
-        //}
-
-        //private void LoadAssetUpdateCallback(string uiFormAssetName, float progress, object userData)
-        //{
-        //    OpenUIFormInfo openUIFormInfo = (OpenUIFormInfo)userData;
-        //    if (openUIFormInfo == null)
-        //    {
-        //        throw new GameFrameworkException("Open UI form info is invalid.");
-        //    }
-
-        //    if (m_OpenUIFormUpdateEventHandler != null)
-        //    {
-        //        OpenUIFormUpdateEventArgs openUIFormUpdateEventArgs = OpenUIFormUpdateEventArgs.Create(openUIFormInfo.SerialId, uiFormAssetName, openUIFormInfo.UIGroup.Name, openUIFormInfo.PauseCoveredUIForm, progress, openUIFormInfo.UserData);
-        //        m_OpenUIFormUpdateEventHandler(this, openUIFormUpdateEventArgs);
-        //        ReferencePool.Release(openUIFormUpdateEventArgs);
-        //    }
-        //}
-
-        //private void LoadAssetDependencyAssetCallback(string uiFormAssetName, string dependencyAssetName, int loadedCount, int totalCount, object userData)
-        //{
-        //    OpenUIFormInfo openUIFormInfo = (OpenUIFormInfo)userData;
-        //    if (openUIFormInfo == null)
-        //    {
-        //        throw new GameFrameworkException("Open UI form info is invalid.");
-        //    }
-
-        //    if (m_OpenUIFormDependencyAssetEventHandler != null)
-        //    {
-        //        OpenUIFormDependencyAssetEventArgs openUIFormDependencyAssetEventArgs = OpenUIFormDependencyAssetEventArgs.Create(openUIFormInfo.SerialId, uiFormAssetName, openUIFormInfo.UIGroup.Name, openUIFormInfo.PauseCoveredUIForm, dependencyAssetName, loadedCount, totalCount, openUIFormInfo.UserData);
-        //        m_OpenUIFormDependencyAssetEventHandler(this, openUIFormDependencyAssetEventArgs);
-        //        ReferencePool.Release(openUIFormDependencyAssetEventArgs);
-        //    }
-        //}
 
     }
 }

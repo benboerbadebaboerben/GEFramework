@@ -5,7 +5,7 @@ namespace ET
     {
         public override void Awake(ConfigComponent self)
         {
-            self.ConfigLoader = new ConfigLoader();
+            
         }
     }
 }

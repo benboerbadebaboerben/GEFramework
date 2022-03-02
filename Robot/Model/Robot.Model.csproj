@@ -116,6 +116,9 @@
         </Compile>
     </ItemGroup>
     <ItemGroup>
+      <Compile Remove="..\..\Server\Model\Generate\ConfigPartial\**" />
+    </ItemGroup>
+    <ItemGroup>
       <ProjectReference Include="..\..\ThirdParty\ETTask\ETTask.csproj" />
       <ProjectReference Include="..\..\ThirdParty\ShareLib\ShareLib.csproj" />
       <ProjectReference Include="..\..\ThirdParty\UnityEngine\UnityEngine.csproj" />

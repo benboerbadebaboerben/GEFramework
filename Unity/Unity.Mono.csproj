@@ -326,8 +326,15 @@
     <Compile Include="Assets\Mono\ILRuntime\Generate\UnityEngine_Animator_Binding.cs" />
     <Compile Include="Assets\Mono\ILRuntime\Generate\System_Collections_Generic_HashSet_1_AService_Binding_Enumerator_Bind.cs" />
     <Compile Include="Assets\Mono\Define.cs" />
+    <Compile Include="Assets\Mono\LubanLib\ByteBuf.cs" />
+    <Compile Include="Assets\Mono\LubanLib\SimpleJSON\SimpleJSON.cs" />
+    <Compile Include="Assets\Mono\LubanLib\SimpleJSON\SimpleJSONBinary.cs" />
+    <Compile Include="Assets\Mono\LubanLib\SimpleJSON\SimpleJSONUnity.cs" />
+    <Compile Include="Assets\Mono\LubanLib\SimpleJSON\SimpleJSONDotNetTypes.cs" />
+    <Compile Include="Assets\Mono\LubanLib\StringUtil.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Mono\LubanLib\SimpleJSON\Changelog.txt" />
     <None Include="Assets\Mono\Unity.Mono.asmdef" />
   </ItemGroup>
   <ItemGroup>
