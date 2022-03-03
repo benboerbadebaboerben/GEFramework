@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "Process": 1,
+    "Zone": 1,
+    "SceneType": "Realm",
+    "Name": "Realm",
+    "OuterPort": 10002
+  },
+  {
+    "id": 2,
+    "Process": 1,
+    "Zone": 1,
+    "SceneType": "Gate",
+    "Name": "Gate1",
+    "OuterPort": 10003
+  },
+  {
+    "id": 3,
+    "Process": 1,
+    "Zone": 1,
+    "SceneType": "Gate",
+    "Name": "Gate2",
+    "OuterPort": 10004
+  },
+  {
+    "id": 4,
+    "Process": 1,
+    "Zone": 1,
+    "SceneType": "Location",
+    "Name": "Location",
+    "OuterPort": 0
+  },
+  {
+    "id": 5,
+    "Process": 1,
+    "Zone": 1,
+    "SceneType": "Map",
+    "Name": "Map1",
+    "OuterPort": 0
+  },
+  {
+    "id": 6,
+    "Process": 1,
+    "Zone": 1,
+    "SceneType": "Map",
+    "Name": "Map2",
+    "OuterPort": 0
+  }
+]

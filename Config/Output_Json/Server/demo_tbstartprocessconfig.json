@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "MachineId": 1,
+    "InnerPort": 20001,
+    "AppName": "Server"
+  },
+  {
+    "id": 2,
+    "MachineId": 1,
+    "InnerPort": 20002,
+    "AppName": "Robot"
+  }
+]

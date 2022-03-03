@@ -50,6 +50,39 @@ namespace ET
                 TimerComponent.Instance.Remove(ref self.Timer);
                 return;
             }
+
+            var oneAI = ConfigUtil.Tables.TbAIMetas.Get(self.AIConfigId);
+
+            foreach (Cfg.Demo.AIMeta aiMeta in oneAI.Metas)
+            {
+
+                AIDispatcherComponent.Instance.AIHandlers.TryGetValue(aiMeta.Name, out AAIHandler aaiHandler);
+
+                if (aaiHandler == null)
+                {
+                    Log.Error($"not found aihandler: {aiMeta.Name}");
+                    continue;
+                }
+
+                int ret = aaiHandler.Check(self, aiMeta);
+                if (ret != 0)
+                {
+                    continue;
+                }
+
+                if (self.Current == aiMeta.Id)
+                {
+                    break;
+                }
+
+                self.Cancel(); // 取消之前的行为
+                ETCancellationToken cancellationToken = new ETCancellationToken();
+                self.CancellationToken = cancellationToken;
+                self.Current = aiMeta.Id;
+
+                aaiHandler.Execute(self, aiMeta, cancellationToken).Coroutine();
+                return;
+            }
             
         }
 

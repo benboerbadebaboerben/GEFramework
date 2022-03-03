@@ -20,6 +20,12 @@ public partial class Tables
     public StartServer.TbStartZone TbStartZone {get; }
     public Demo.TbAIMetas TbAIMetas {get; }
     public Demo.TbUnitMeta TbUnitMeta {get; }
+    public Demo.TbAIConfig TbAIConfig {get; }
+    public Demo.TbStartMachineConfig TbStartMachineConfig {get; }
+    public Demo.TbStartProcessConfig TbStartProcessConfig {get; }
+    public Demo.TbStartSceneConfig TbStartSceneConfig {get; }
+    public Demo.TbStartZoneConfig TbStartZoneConfig {get; }
+    public Demo.TbUnitConfig TbUnitConfig {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -38,6 +44,18 @@ public partial class Tables
         tables.Add("Demo.TbAIMetas", TbAIMetas);
         TbUnitMeta = new Demo.TbUnitMeta(loader("demo_tbunitmeta")); 
         tables.Add("Demo.TbUnitMeta", TbUnitMeta);
+        TbAIConfig = new Demo.TbAIConfig(loader("demo_tbaiconfig")); 
+        tables.Add("Demo.TbAIConfig", TbAIConfig);
+        TbStartMachineConfig = new Demo.TbStartMachineConfig(loader("demo_tbstartmachineconfig")); 
+        tables.Add("Demo.TbStartMachineConfig", TbStartMachineConfig);
+        TbStartProcessConfig = new Demo.TbStartProcessConfig(loader("demo_tbstartprocessconfig")); 
+        tables.Add("Demo.TbStartProcessConfig", TbStartProcessConfig);
+        TbStartSceneConfig = new Demo.TbStartSceneConfig(loader("demo_tbstartsceneconfig")); 
+        tables.Add("Demo.TbStartSceneConfig", TbStartSceneConfig);
+        TbStartZoneConfig = new Demo.TbStartZoneConfig(loader("demo_tbstartzoneconfig")); 
+        tables.Add("Demo.TbStartZoneConfig", TbStartZoneConfig);
+        TbUnitConfig = new Demo.TbUnitConfig(loader("demo_tbunitconfig")); 
+        tables.Add("Demo.TbUnitConfig", TbUnitConfig);
 
         PostInit();
         TbGlobal.Resolve(tables); 
@@ -47,6 +65,12 @@ public partial class Tables
         TbStartZone.Resolve(tables); 
         TbAIMetas.Resolve(tables); 
         TbUnitMeta.Resolve(tables); 
+        TbAIConfig.Resolve(tables); 
+        TbStartMachineConfig.Resolve(tables); 
+        TbStartProcessConfig.Resolve(tables); 
+        TbStartSceneConfig.Resolve(tables); 
+        TbStartZoneConfig.Resolve(tables); 
+        TbUnitConfig.Resolve(tables); 
         PostResolve();
     }
 
@@ -59,6 +83,12 @@ public partial class Tables
         TbStartZone.TranslateText(translator); 
         TbAIMetas.TranslateText(translator); 
         TbUnitMeta.TranslateText(translator); 
+        TbAIConfig.TranslateText(translator); 
+        TbStartMachineConfig.TranslateText(translator); 
+        TbStartProcessConfig.TranslateText(translator); 
+        TbStartSceneConfig.TranslateText(translator); 
+        TbStartZoneConfig.TranslateText(translator); 
+        TbUnitConfig.TranslateText(translator); 
     }
     
     partial void PostInit();

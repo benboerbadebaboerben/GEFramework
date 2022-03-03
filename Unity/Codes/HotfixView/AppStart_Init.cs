@@ -1,3 +1,7 @@
+using Bright.Serialization;
+using System.Threading.Tasks;
+using UnityEngine;
+
 namespace ET
 {
     public class AppStart_Init: AEvent<EventType.AppStart>
@@ -11,7 +15,8 @@ namespace ET
             Game.Scene.AddComponent<ResourcesComponent>();
             await ResourcesComponent.Instance.LoadBundleAsync("config.unity3d");
             Game.Scene.AddComponent<ConfigComponent>();
-            ConfigComponent.Instance.Load();
+            await ConfigComponent.Instance.LoadAsync(ByteBufLoader);
+            //ConfigComponent.Instance.Load();
             ResourcesComponent.Instance.UnloadBundle("config.unity3d");
             
             Game.Scene.AddComponent<OpcodeTypeComponent>();
@@ -29,6 +34,13 @@ namespace ET
             Scene zoneScene = SceneFactory.CreateZoneScene(1, "Game", Game.Scene);
             
             await Game.EventSystem.PublishAsync(new EventType.AppStartInitFinish() { ZoneScene = zoneScene });
+        }
+
+        private ByteBuf ByteBufLoader(string file)
+        {
+            ResourcesComponent.Instance.LoadBundle(file);
+            TextAsset config = ResourcesComponent.Instance.GetAsset(file.StringToAB(), file) as TextAsset;
+            return new ByteBuf(config.bytes);
         }
     }
 }

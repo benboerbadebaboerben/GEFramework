@@ -29,7 +29,7 @@
     <DefineConstants>DEBUG;TRACE;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -38,7 +38,7 @@
     <OutputPath>Temp\Bin\Release\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
@@ -50,8 +50,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Codes\HotfixView\AppStart_Init.cs" />
-    <Compile Include="Codes\HotfixView\Demo\Config\ConfigComponent_SetConfigLoader_Awake.cs" />
-    <Compile Include="Codes\HotfixView\Demo\Config\ConfigLoader.cs" />
     <Compile Include="Codes\HotfixView\Demo\Global\GlobalComponentSystem.cs" />
     <Compile Include="Codes\HotfixView\Demo\Opera\OperaComponentSystem.cs" />
     <Compile Include="Codes\HotfixView\Demo\Scene\AfterCreateCurrentScene_AddComponent.cs" />
@@ -80,6 +78,8 @@
     <Compile Include="Codes\HotfixView\Module\Resource\GameObjectHelper.cs" />
     <Compile Include="Codes\HotfixView\Module\UI\Helper\UIGroupHelper.cs" />
     <Compile Include="Codes\HotfixView\Module\UI\UIComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Module\UI\UIComponentSystem.cs" />
+    <Compile Include="Codes\HotfixView\Module\UI\UIEventComponentSystem.cs" />
     <Compile Include="Codes\HotfixView\Module\UI\UIEventComponentSystem.cs" />
     <Compile Include="Codes\HotfixView\Module\UI\UIFormSystem.cs" />
     <Compile Include="Codes\HotfixView\Module\UI\UIGroupSystem.cs" />
@@ -133,7 +133,7 @@
       <HintPath>./Temp/bin/Debug/UnityEngine.ClusterRendererModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>Temp\bin\Debug\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CrashReportingModule">
       <HintPath>./Temp/bin/Debug/UnityEngine.CrashReportingModule.dll</HintPath>

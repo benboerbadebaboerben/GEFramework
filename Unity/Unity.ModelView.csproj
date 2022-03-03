@@ -63,7 +63,6 @@
     <Compile Include="Codes\ModelView\Demo\Unit\AnimatorComponent.cs" />
     <Compile Include="Codes\ModelView\Demo\Unit\GameObjectComponent.cs" />
     <Compile Include="Codes\ModelView\Module\Base\GameFrameworkAction.cs" />
-    <Compile Include="Codes\ModelView\Module\Base\GameFrameworkEntry.cs" />
     <Compile Include="Codes\ModelView\Module\Base\GameFrameworkEventArgs.cs" />
     <Compile Include="Codes\ModelView\Module\Base\GameFrameworkException.cs" />
     <Compile Include="Codes\ModelView\Module\Base\GameFrameworkFunc.cs" />
@@ -73,14 +72,21 @@
     <Compile Include="Codes\ModelView\Module\Base\GameFrameworkMultiDictionary.cs" />
     <Compile Include="Codes\ModelView\Module\Base\GameFrameworkSerializer.cs" />
     <Compile Include="Codes\ModelView\Module\UI\AUIEvent.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\AUIEvent.cs" />
     <Compile Include="Codes\ModelView\Module\UI\LayerNames.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\LayerNames.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UI.cs" />
     <Compile Include="Codes\ModelView\Module\UI\UI.cs" />
     <Compile Include="Codes\ModelView\Module\UI\UICommonEventType.cs" />
     <Compile Include="Codes\ModelView\Module\UI\UIComponent.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIComponent.cs" />
     <Compile Include="Codes\ModelView\Module\UI\UIEventAttribute.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIEventAttribute.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIEventComponent.cs" />
     <Compile Include="Codes\ModelView\Module\UI\UIEventComponent.cs" />
     <Compile Include="Codes\ModelView\Module\UI\UIForm.cs" />
     <Compile Include="Codes\ModelView\Module\UI\UIGroup.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIType.cs" />
     <Compile Include="Codes\ModelView\Module\UI\UIType.cs" />
     <Reference Include="UnityEngine">
       <HintPath>./Temp/bin/Debug/UnityEngine.dll</HintPath>

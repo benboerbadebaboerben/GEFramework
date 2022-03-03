@@ -9,6 +9,7 @@ namespace ET
         public int ConfigId; //配置表id
 
         [BsonIgnore]
+        public Cfg.Demo.UnitMeta Meta => ConfigUtil.Tables.TbUnitMeta.Get(this.ConfigId);
 
         private Vector3 position; //坐标
 
