@@ -51,26 +51,26 @@ namespace ET
                 return;
             }
 
-            var oneAI = ConfigUtil.Tables.TbAIMetas.Get(self.AIConfigId);
+            var oneAI = ConfigComponent.Instance.Tables. AIConfigCategory.AIConfigs[self.AIConfigId];
 
-            foreach (Cfg.Demo.AIMeta aiMeta in oneAI.Metas)
+            foreach (AIConfig aiConfig in oneAI.Values)
             {
 
-                AIDispatcherComponent.Instance.AIHandlers.TryGetValue(aiMeta.Name, out AAIHandler aaiHandler);
+                AIDispatcherComponent.Instance.AIHandlers.TryGetValue(aiConfig.Name, out AAIHandler aaiHandler);
 
                 if (aaiHandler == null)
                 {
-                    Log.Error($"not found aihandler: {aiMeta.Name}");
+                    Log.Error($"not found aihandler: {aiConfig.Name}");
                     continue;
                 }
 
-                int ret = aaiHandler.Check(self, aiMeta);
+                int ret = aaiHandler.Check(self, aiConfig);
                 if (ret != 0)
                 {
                     continue;
                 }
 
-                if (self.Current == aiMeta.Id)
+                if (self.Current == aiConfig.Id)
                 {
                     break;
                 }
@@ -78,9 +78,9 @@ namespace ET
                 self.Cancel(); // 取消之前的行为
                 ETCancellationToken cancellationToken = new ETCancellationToken();
                 self.CancellationToken = cancellationToken;
-                self.Current = aiMeta.Id;
+                self.Current = aiConfig.Id;
 
-                aaiHandler.Execute(self, aiMeta, cancellationToken).Coroutine();
+                aaiHandler.Execute(self, aiConfig, cancellationToken).Coroutine();
                 return;
             }
             

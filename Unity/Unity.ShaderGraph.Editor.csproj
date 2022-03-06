@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,6 +52,9 @@
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.14f1c1</UnityVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Nodes\Math\Advanced\LengthNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Nodes\Input\Texture\SampleTexture2DNode.cs" />
@@ -415,8 +418,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Util\TextUtil.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Drawing\Controls\TextureControl.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Interfaces\IMayRequireTime.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Generation\Enumerations\PropertyType.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Nodes\Input\PBR\MetalReflectanceNode.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Generation\Enumerations\PropertyType.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Serialization\RefDataEnumerable.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Generation\Contexts\TargetSetupContext.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Interfaces\IMayRequireCameraOpaqueTexture.cs" />
@@ -451,8 +454,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Nodes\Input\Texture\Texture2DArrayAssetNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Nodes\GeometryNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Nodes\Math\Trigonometry\HyperbolicSineNode.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Nodes\Math\Interpolation\InverseLerpNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Nodes\UV\TriplanarNode.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Nodes\Math\Interpolation\InverseLerpNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Data\Nodes\Math\Derivative\DDXNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Drawing\Inspector\PropertyDrawers\DropdownPropertyDrawer.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@10.8.1\Editor\Drawing\Manipulators\Scrollable.cs" />

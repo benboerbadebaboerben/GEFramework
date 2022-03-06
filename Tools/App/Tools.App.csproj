@@ -41,6 +41,9 @@
             <Link>Base\%(RecursiveDir)%(FileName)%(Extension)</Link>
         </Compile>
 
+        <Compile Include="..\..\Unity\Codes\Model\Module\Config\**\*.cs">
+            <Link>Module\Config\%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
 
         <Compile Include="..\..\Unity\Codes\Model\Module\Message\OpcodeRangeDefine.cs">
             <Link>Module\Message\OpcodeRangeDefine.cs</Link>
@@ -49,6 +52,7 @@
     
     <ItemGroup>
       <ProjectReference Include="..\..\ThirdParty\ETTask\ETTask.csproj" />
+      <ProjectReference Include="..\..\ThirdParty\LubanLib\LubanLib.csproj" />
       <ProjectReference Include="..\..\ThirdParty\ShareLib\ShareLib.csproj" />
     </ItemGroup>
     

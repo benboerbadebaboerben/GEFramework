@@ -49,44 +49,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Codes\ModelView\Demo\Camera\CameraComponent.cs" />
-    <Compile Include="Codes\ModelView\Demo\Entry.cs" />
-    <Compile Include="Codes\ModelView\Demo\Global\GlobalComponent.cs" />
-    <Compile Include="Codes\ModelView\Demo\Opera\OperaComponent.cs" />
-    <Compile Include="Codes\ModelView\Demo\Resource\ResourcesComponent.cs" />
-    <Compile Include="Codes\ModelView\Demo\Resource\ResourcesLoaderComponent.cs" />
-    <Compile Include="Codes\ModelView\Demo\Scene\SceneChangeComponent.cs" />
-    <Compile Include="Codes\ModelView\Demo\UI\UIHelp\UIHelpComponent.cs" />
-    <Compile Include="Codes\ModelView\Demo\UI\UILoading\UILoadingComponent.cs" />
-    <Compile Include="Codes\ModelView\Demo\UI\UILobby\UILobbyComponent.cs" />
-    <Compile Include="Codes\ModelView\Demo\UI\UILogin\UILoginComponent.cs" />
-    <Compile Include="Codes\ModelView\Demo\Unit\AnimatorComponent.cs" />
-    <Compile Include="Codes\ModelView\Demo\Unit\GameObjectComponent.cs" />
-    <Compile Include="Codes\ModelView\Module\Base\GameFrameworkAction.cs" />
-    <Compile Include="Codes\ModelView\Module\Base\GameFrameworkEventArgs.cs" />
-    <Compile Include="Codes\ModelView\Module\Base\GameFrameworkException.cs" />
-    <Compile Include="Codes\ModelView\Module\Base\GameFrameworkFunc.cs" />
-    <Compile Include="Codes\ModelView\Module\Base\GameFrameworkLinkedList.cs" />
-    <Compile Include="Codes\ModelView\Module\Base\GameFrameworkLinkedListRange.cs" />
-    <Compile Include="Codes\ModelView\Module\Base\GameFrameworkModule.cs" />
-    <Compile Include="Codes\ModelView\Module\Base\GameFrameworkMultiDictionary.cs" />
-    <Compile Include="Codes\ModelView\Module\Base\GameFrameworkSerializer.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\AUIEvent.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\AUIEvent.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\LayerNames.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\LayerNames.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\UI.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\UI.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\UICommonEventType.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\UIComponent.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\UIComponent.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\UIEventAttribute.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\UIEventAttribute.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\UIEventComponent.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\UIEventComponent.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\UIForm.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\UIGroup.cs" />
-    <Compile Include="Codes\ModelView\Module\UI\UIType.cs" />
     <Compile Include="Codes\ModelView\Module\UI\UIType.cs" />
     <Reference Include="UnityEngine">
       <HintPath>./Temp/bin/Debug/UnityEngine.dll</HintPath>
@@ -622,6 +584,33 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>./Temp/bin/Debug/UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Compile Include="Codes\ModelView\Demo\Camera\CameraComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\Entry.cs" />
+    <Compile Include="Codes\ModelView\Demo\Global\GlobalComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\Opera\OperaComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\Scene\SceneChangeComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\UI\UIHelp\UIHelpComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\UI\UILoading\UILoadingComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\UI\UILobby\UILobbyComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\UI\UILogin\UILoginComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\Unit\AnimatorComponent.cs" />
+    <Compile Include="Codes\ModelView\Demo\Unit\GameObjectComponent.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\AUIEvent.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\AUIEvent.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\LayerNames.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\LayerNames.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UI.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UI.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UICommonEventType.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIComponent.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIComponent.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIEventAttribute.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIEventAttribute.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIEventComponent.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIEventComponent.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIForm.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIGroup.cs" />
+    <Compile Include="Codes\ModelView\Module\UI\UIType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Model.csproj">
@@ -637,7 +626,9 @@
       <Name>Unity.ThirdParty</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Codes\ModelView\Demo\Resource\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -647,3 +638,4 @@
   </Target>
   -->
 </Project>
+<!--2022/3/6 20:55:22-->

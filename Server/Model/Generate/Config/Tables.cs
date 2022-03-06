@@ -8,87 +8,62 @@
 using Bright.Serialization;
 
 
-namespace Cfg
+namespace ET
 {
    
 public partial class Tables
 {
-    public Global.TbGlobal TbGlobal {get; }
-    public StartServer.TbStartMachine TbStartMachine {get; }
-    public StartServer.TbStartProcess TbStartProcess {get; }
-    public StartServer.TbStartScene TbStartScene {get; }
-    public StartServer.TbStartZone TbStartZone {get; }
-    public Demo.TbAIMetas TbAIMetas {get; }
-    public Demo.TbUnitMeta TbUnitMeta {get; }
-    public Demo.TbAIConfig TbAIConfig {get; }
-    public Demo.TbStartMachineConfig TbStartMachineConfig {get; }
-    public Demo.TbStartProcessConfig TbStartProcessConfig {get; }
-    public Demo.TbStartSceneConfig TbStartSceneConfig {get; }
-    public Demo.TbStartZoneConfig TbStartZoneConfig {get; }
-    public Demo.TbUnitConfig TbUnitConfig {get; }
+    public AIConfigCategory AIConfigCategory {get; }
+    public StartMachineConfigCategory StartMachineConfigCategory {get; }
+    public StartProcessConfigCategory StartProcessConfigCategory {get; }
+    public StartSceneConfigCategory StartSceneConfigCategory {get; }
+    public StartZoneConfigCategory StartZoneConfigCategory {get; }
+    public UnitConfigCategory UnitConfigCategory {get; }
+    public UIConfigCategory UIConfigCategory {get; }
+    public UIGroupConfigCategory UIGroupConfigCategory {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
         var tables = new System.Collections.Generic.Dictionary<string, object>();
-        TbGlobal = new Global.TbGlobal(loader("global_tbglobal")); 
-        tables.Add("Global.TbGlobal", TbGlobal);
-        TbStartMachine = new StartServer.TbStartMachine(loader("startserver_tbstartmachine")); 
-        tables.Add("StartServer.TbStartMachine", TbStartMachine);
-        TbStartProcess = new StartServer.TbStartProcess(loader("startserver_tbstartprocess")); 
-        tables.Add("StartServer.TbStartProcess", TbStartProcess);
-        TbStartScene = new StartServer.TbStartScene(loader("startserver_tbstartscene")); 
-        tables.Add("StartServer.TbStartScene", TbStartScene);
-        TbStartZone = new StartServer.TbStartZone(loader("startserver_tbstartzone")); 
-        tables.Add("StartServer.TbStartZone", TbStartZone);
-        TbAIMetas = new Demo.TbAIMetas(loader("demo_tbaimetas")); 
-        tables.Add("Demo.TbAIMetas", TbAIMetas);
-        TbUnitMeta = new Demo.TbUnitMeta(loader("demo_tbunitmeta")); 
-        tables.Add("Demo.TbUnitMeta", TbUnitMeta);
-        TbAIConfig = new Demo.TbAIConfig(loader("demo_tbaiconfig")); 
-        tables.Add("Demo.TbAIConfig", TbAIConfig);
-        TbStartMachineConfig = new Demo.TbStartMachineConfig(loader("demo_tbstartmachineconfig")); 
-        tables.Add("Demo.TbStartMachineConfig", TbStartMachineConfig);
-        TbStartProcessConfig = new Demo.TbStartProcessConfig(loader("demo_tbstartprocessconfig")); 
-        tables.Add("Demo.TbStartProcessConfig", TbStartProcessConfig);
-        TbStartSceneConfig = new Demo.TbStartSceneConfig(loader("demo_tbstartsceneconfig")); 
-        tables.Add("Demo.TbStartSceneConfig", TbStartSceneConfig);
-        TbStartZoneConfig = new Demo.TbStartZoneConfig(loader("demo_tbstartzoneconfig")); 
-        tables.Add("Demo.TbStartZoneConfig", TbStartZoneConfig);
-        TbUnitConfig = new Demo.TbUnitConfig(loader("demo_tbunitconfig")); 
-        tables.Add("Demo.TbUnitConfig", TbUnitConfig);
+        AIConfigCategory = new AIConfigCategory(loader("aiconfigcategory")); 
+        tables.Add("AIConfigCategory", AIConfigCategory);
+        StartMachineConfigCategory = new StartMachineConfigCategory(loader("startmachineconfigcategory")); 
+        tables.Add("StartMachineConfigCategory", StartMachineConfigCategory);
+        StartProcessConfigCategory = new StartProcessConfigCategory(loader("startprocessconfigcategory")); 
+        tables.Add("StartProcessConfigCategory", StartProcessConfigCategory);
+        StartSceneConfigCategory = new StartSceneConfigCategory(loader("startsceneconfigcategory")); 
+        tables.Add("StartSceneConfigCategory", StartSceneConfigCategory);
+        StartZoneConfigCategory = new StartZoneConfigCategory(loader("startzoneconfigcategory")); 
+        tables.Add("StartZoneConfigCategory", StartZoneConfigCategory);
+        UnitConfigCategory = new UnitConfigCategory(loader("unitconfigcategory")); 
+        tables.Add("UnitConfigCategory", UnitConfigCategory);
+        UIConfigCategory = new UIConfigCategory(loader("uiconfigcategory")); 
+        tables.Add("UIConfigCategory", UIConfigCategory);
+        UIGroupConfigCategory = new UIGroupConfigCategory(loader("uigroupconfigcategory")); 
+        tables.Add("UIGroupConfigCategory", UIGroupConfigCategory);
 
         PostInit();
-        TbGlobal.Resolve(tables); 
-        TbStartMachine.Resolve(tables); 
-        TbStartProcess.Resolve(tables); 
-        TbStartScene.Resolve(tables); 
-        TbStartZone.Resolve(tables); 
-        TbAIMetas.Resolve(tables); 
-        TbUnitMeta.Resolve(tables); 
-        TbAIConfig.Resolve(tables); 
-        TbStartMachineConfig.Resolve(tables); 
-        TbStartProcessConfig.Resolve(tables); 
-        TbStartSceneConfig.Resolve(tables); 
-        TbStartZoneConfig.Resolve(tables); 
-        TbUnitConfig.Resolve(tables); 
+        AIConfigCategory.Resolve(tables); 
+        StartMachineConfigCategory.Resolve(tables); 
+        StartProcessConfigCategory.Resolve(tables); 
+        StartSceneConfigCategory.Resolve(tables); 
+        StartZoneConfigCategory.Resolve(tables); 
+        UnitConfigCategory.Resolve(tables); 
+        UIConfigCategory.Resolve(tables); 
+        UIGroupConfigCategory.Resolve(tables); 
         PostResolve();
     }
 
     public void TranslateText(System.Func<string, string, string> translator)
     {
-        TbGlobal.TranslateText(translator); 
-        TbStartMachine.TranslateText(translator); 
-        TbStartProcess.TranslateText(translator); 
-        TbStartScene.TranslateText(translator); 
-        TbStartZone.TranslateText(translator); 
-        TbAIMetas.TranslateText(translator); 
-        TbUnitMeta.TranslateText(translator); 
-        TbAIConfig.TranslateText(translator); 
-        TbStartMachineConfig.TranslateText(translator); 
-        TbStartProcessConfig.TranslateText(translator); 
-        TbStartSceneConfig.TranslateText(translator); 
-        TbStartZoneConfig.TranslateText(translator); 
-        TbUnitConfig.TranslateText(translator); 
+        AIConfigCategory.TranslateText(translator); 
+        StartMachineConfigCategory.TranslateText(translator); 
+        StartProcessConfigCategory.TranslateText(translator); 
+        StartSceneConfigCategory.TranslateText(translator); 
+        StartZoneConfigCategory.TranslateText(translator); 
+        UnitConfigCategory.TranslateText(translator); 
+        UIConfigCategory.TranslateText(translator); 
+        UIGroupConfigCategory.TranslateText(translator); 
     }
     
     partial void PostInit();

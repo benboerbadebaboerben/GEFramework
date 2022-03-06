@@ -13,11 +13,6 @@ namespace ET
 			
 			GameObject uiRoot = GameObject.Find("/Global/UI");
 			ReferenceCollector referenceCollector = uiRoot.GetComponent<ReferenceCollector>();
-			
-			self.UILayers.Add((int)UILayer.Hidden, referenceCollector.Get<GameObject>(UILayer.Hidden.ToString()).transform);
-			self.UILayers.Add((int)UILayer.Low, referenceCollector.Get<GameObject>(UILayer.Low.ToString()).transform);
-			self.UILayers.Add((int)UILayer.Mid, referenceCollector.Get<GameObject>(UILayer.Mid.ToString()).transform);
-			self.UILayers.Add((int)UILayer.High, referenceCollector.Get<GameObject>(UILayer.High.ToString()).transform);
 
 			var uiEvents = Game.EventSystem.GetTypes(typeof (UIEventAttribute));
 			foreach (Type type in uiEvents)

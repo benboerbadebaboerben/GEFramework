@@ -12,7 +12,7 @@ namespace ET
     /// </summary>
     /// <param name="name">界面组名称。</param>
     /// <param name="depth">界面组深度。</param>
-    public class UIGroup : Entity,IAwake<string,int>
+    public class UIGroup : Entity,IAwake<string,int,GameObject>
     {
         public GameObject obj;
         public Canvas m_CachedCanvas;

@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>ET</RootNamespace>
-    <ProjectGuid>{52F66610-896A-C4D1-9881-1A19DF7AB80E}</ProjectGuid>
+    <ProjectGuid>{52f66610-896a-c4d1-9881-1a19df7ab80e}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -49,45 +49,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Codes\Hotfix\Core\Scene\ZoneSceneFlagComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Core\Scene\ZoneSceneManagerComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Demo\AI\AI_Attack.cs" />
-    <Compile Include="Codes\Hotfix\Demo\AI\AI_XunLuo.cs" />
-    <Compile Include="Codes\Hotfix\Demo\AI\XunLuoPathComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Demo\ConstValue.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Login\EnterMapHelper.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Login\LoginHelper.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Move\M2C_PathfindingResultHandler.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Move\M2C_StopHandler.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Move\MoveComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Move\MoveHelper.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Scene\CurrentScenesComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Scene\M2C_StartSceneChangeHandler.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Scene\SceneChangeHelper.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Scene\SceneFactory.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Session\SessionComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Session\SessionStreamDispatcherClientOuter.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Unit\M2C_CreateMyUnitHandler.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Unit\M2C_CreateUnitsHandler.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Unit\M2C_RemoveUnitsHandler.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Unit\UnitComponent.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Unit\UnitFactory.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Unit\UnitHelper.cs" />
-    <Compile Include="Codes\Hotfix\Demo\Unit\UnitSystem.cs" />
-    <Compile Include="Codes\Hotfix\Module\AI\AIComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Module\AI\AIDispatcherComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Module\Config\ConfigComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Module\Message\MessageDispatcherComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Module\Message\NetKcpComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Module\Message\NetThreadComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Module\Message\SessionAcceptTimeoutComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Module\Message\SessionIdleCheckerComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Module\Message\SessionStreamDispatcherSystem.cs" />
-    <Compile Include="Codes\Hotfix\Module\Numeric\NumericChangeEvent_NotifyWatcher.cs" />
-    <Compile Include="Codes\Hotfix\Module\Numeric\NumericWatcher_Hp_ShowUI.cs" />
-    <Compile Include="Codes\Hotfix\Module\Ping\PingComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Module\Recast\NavmeshComponentSystem.cs" />
-    <Compile Include="Codes\Hotfix\Module\Recast\PathfindingComponentSystem.cs" />
     <Reference Include="UnityEngine">
       <HintPath>./Temp/bin/Debug/UnityEngine.dll</HintPath>
     </Reference>
@@ -622,6 +583,7 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>./Temp/bin/Debug/UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Compile Include="Codes\Hotfix\**\*.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Model.csproj">
@@ -646,3 +608,4 @@
   </Target>
   -->
 </Project>
+<!--2022/3/6 20:55:22-->

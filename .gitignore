@@ -58,3 +58,5 @@ Server/.DS_Store
 /Unity/Assembly-CSharp.csproj
 /Excel/~$*.xlsx
 /.vscode
+.cache.meta
+/Unity/BuildBundles

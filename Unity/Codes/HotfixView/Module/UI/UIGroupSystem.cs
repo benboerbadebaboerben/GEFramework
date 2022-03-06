@@ -9,14 +9,15 @@ using UnityEngine.UI;
 namespace ET
 {
     [ObjectSystem]
-    public class UIGroupAwakeSystem : AwakeSystem<UIGroup,string,int>
+    public class UIGroupAwakeSystem : AwakeSystem<UIGroup,string,int,GameObject>
     {
-        public override void Awake(UIGroup self, string name, int depth)
+        public override void Awake(UIGroup self, string name, int depth,GameObject obj)
         {
             if (string.IsNullOrEmpty(name))
             {
                 Log.Error("UI group name is invalid.");
             }
+            self.obj = obj;
             self.m_CachedCanvas = self.obj.GetOrAddComponent<Canvas>();
             self.obj.GetOrAddComponent<GraphicRaycaster>();
             self.m_Name = name;
