@@ -138,7 +138,7 @@ namespace ET
             }
             if (uiForm.obj != null)
             {
-                Game.Scene.GetComponent<ResourcesComponent>()?.UnloadBundle(uiForm.m_UIFormAssetName.StringToAB());
+                AssetComponent.UnLoadByPath(uiForm.m_UIFormAssetName);
                 UnityEngine.Object.Destroy(uiForm.obj);
                 uiForm.obj = null;
             }

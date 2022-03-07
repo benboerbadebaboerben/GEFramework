@@ -19,8 +19,6 @@ public partial class Tables
     public StartSceneConfigCategory StartSceneConfigCategory {get; }
     public StartZoneConfigCategory StartZoneConfigCategory {get; }
     public UnitConfigCategory UnitConfigCategory {get; }
-    public UIConfigCategory UIConfigCategory {get; }
-    public UIGroupConfigCategory UIGroupConfigCategory {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -37,10 +35,6 @@ public partial class Tables
         tables.Add("StartZoneConfigCategory", StartZoneConfigCategory);
         UnitConfigCategory = new UnitConfigCategory(loader("unitconfigcategory")); 
         tables.Add("UnitConfigCategory", UnitConfigCategory);
-        UIConfigCategory = new UIConfigCategory(loader("uiconfigcategory")); 
-        tables.Add("UIConfigCategory", UIConfigCategory);
-        UIGroupConfigCategory = new UIGroupConfigCategory(loader("uigroupconfigcategory")); 
-        tables.Add("UIGroupConfigCategory", UIGroupConfigCategory);
 
         PostInit();
         AIConfigCategory.Resolve(tables); 
@@ -49,8 +43,6 @@ public partial class Tables
         StartSceneConfigCategory.Resolve(tables); 
         StartZoneConfigCategory.Resolve(tables); 
         UnitConfigCategory.Resolve(tables); 
-        UIConfigCategory.Resolve(tables); 
-        UIGroupConfigCategory.Resolve(tables); 
         PostResolve();
     }
 
@@ -62,8 +54,6 @@ public partial class Tables
         StartSceneConfigCategory.TranslateText(translator); 
         StartZoneConfigCategory.TranslateText(translator); 
         UnitConfigCategory.TranslateText(translator); 
-        UIConfigCategory.TranslateText(translator); 
-        UIGroupConfigCategory.TranslateText(translator); 
     }
     
     partial void PostInit();
