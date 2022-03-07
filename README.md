@@ -5,7 +5,7 @@
 
 ## 客户端框架层(新增)：
 ### UI模块：
-根据Gameframework的思想，用ECS重写整个UI模块，可以理解为ECS版本的GameFramework的UI。
+根据Gameframework的思想，用ECS重写整个UI模块。
 <br>[Gameframework](https://github.com/EllanJiang/GameFramework)  
 
 ### 导表配置模块：
@@ -13,4 +13,5 @@
 <br>[Luban](https://github.com/focus-creative-games/luban)  
 
 ### 资源加载模块：
+使用BundleMaster对资源进行分包以及加载策略。
 <br>[BundleMaster](https://github.com/mister91jiao/BundleMaster)  
