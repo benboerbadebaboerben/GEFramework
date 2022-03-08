@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
 namespace ET
 {
-	/// <summary>
-	/// 管理所有UI GameObject
-	/// </summary>
-	public class UIEventComponent: Entity, IAwake
-	{
-		public static UIEventComponent Instance;
-		
-		public Dictionary<string, AUIEvent> UIEvents = new Dictionary<string, AUIEvent>();
-		
-		public Dictionary<int, Transform> UILayers = new Dictionary<int, Transform>();
-	}
+    public class UIEventComponent : Entity,IAwake,IDestroy
+    {
+        public static UIEventComponent Instance { get; set; }
+        public readonly Dictionary<UIType, IAUIEventHandler> UIEventHandlers = new Dictionary<UIType, IAUIEventHandler>();
+    }
 }

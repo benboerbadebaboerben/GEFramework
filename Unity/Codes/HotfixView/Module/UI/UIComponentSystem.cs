@@ -79,49 +79,22 @@ namespace ET
         /// 异步加载加载UI界面
         /// </summary>
         /// 先用着Path当作uiFormName
-        public static async ETTask<UIForm> LoadUIFormAsync(this UIComponent self, string uiFormName, UIGroup uiGroup, int serialId, string uiFormAssetName, bool pauseCoveredUIForm, object userData)
+        public static async ETTask<UIForm> LoadUIFormAsync(this UIComponent self,UIType uiType, string uiFormPath, UIGroup uiGroup, int serialId, string uiFormAssetName, bool pauseCoveredUIForm, object userData)
         {
-            var objBundle = await AssetComponent.LoadAsync<GameObject>(uiFormName);
-            GameObject obj = UnityEngine.Object.Instantiate(objBundle);
             UIForm uiForm = uiGroup.AddChild<UIForm>();
+            uiForm.uiType = uiType;
             uiForm.m_SerialId = serialId;
             uiForm.m_PauseCoveredUIForm = pauseCoveredUIForm;
             uiForm.m_UserData = userData;
-            uiForm.obj = obj;
-            try
-            {
-                if (obj == null)
-                {
-                    if (self.m_UIFormsToReleaseOnLoad.Contains(serialId))
-                    {
-                        self.m_UIFormsToReleaseOnLoad.Remove(serialId);
-                    }
-                    throw new GameFrameworkException("Open UI form info is invalid.");
-                }
 
-                Transform transform = obj.transform;
-                transform.SetParent(uiGroup.obj.transform);
-                transform.localScale = Vector3.one;
-
-                if (uiForm == null)
-                {
-                    Log.Error("Can not create UI form in UI form helper.");
-                }
-
-                self.m_UIFormsBeingLoaded.Remove(uiForm.m_SerialId);
-
-                uiForm.OnInit(serialId, uiFormAssetName, pauseCoveredUIForm, false, userData);
-                uiGroup.AddUIForm(uiForm);
-                uiForm.OnOpen(userData);
-                uiGroup.Refresh();
-                Game.EventSystem.Publish(new UICommonEventType.OpenUIFormSuccessEventArgs());
-            }
-            catch (Exception)
-            {
-                Game.EventSystem.Publish(new UICommonEventType.OpenUIFormFailureEventArgs());
-                throw;
-            }
-
+            uiGroup.AddUIForm(uiForm);
+            UIEventComponent.Instance.GetUIEventHandler(uiType).OnInit(uiForm, serialId, uiFormAssetName, pauseCoveredUIForm, userData);
+            var objBundle = await AssetComponent.LoadAsync<GameObject>(uiFormPath);
+            GameObject obj = UnityEngine.Object.Instantiate(objBundle);
+            Transform transform = obj.transform;
+            transform.SetParent(uiGroup.obj.transform);
+            transform.localScale = Vector3.one;
+            UIEventComponent.Instance.GetUIEventHandler(uiType).OnOpen(uiForm, obj);
             return uiForm;
         }
 
@@ -536,10 +509,10 @@ namespace ET
         /// <param name="uiFormAssetName">界面资源名称。</param>
         /// <param name="uiGroupName">界面组名称。</param>
         /// <returns>uiform。</returns>
-        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, string uiFormAssetName, string uiGroupName)
+        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, UIType uiType)
         {
             //默认优先级为0
-            return await self.OpenUIForm(uiFormAssetName, uiGroupName, 0, false, null);
+            return await self.OpenUIForm(uiType, 0, false, null);
         }
 
         /// <summary>
@@ -549,9 +522,9 @@ namespace ET
         /// <param name="uiGroupName">界面组名称。</param>
         /// <param name="priority">加载界面资源的优先级。</param>
         /// <returns>界面的序列编号。</returns>
-        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, string uiFormAssetName, string uiGroupName, int priority)
+        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, UIType uiType, int priority)
         {
-            return await self.OpenUIForm(uiFormAssetName, uiGroupName, priority, false, null);
+            return await self.OpenUIForm(uiType, priority, false, null);
         }
 
         /// <summary>
@@ -561,10 +534,10 @@ namespace ET
         /// <param name="uiGroupName">界面组名称。</param>
         /// <param name="pauseCoveredUIForm">是否暂停被覆盖的界面。</param>
         /// <returns>界面的序列编号。</returns>
-        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, string uiFormAssetName, string uiGroupName, bool pauseCoveredUIForm)
+        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, UIType uiType, bool pauseCoveredUIForm)
         {
             //默认优先级为0
-            return await self.OpenUIForm(uiFormAssetName, uiGroupName, 0, pauseCoveredUIForm, null);
+            return await self.OpenUIForm(uiType, 0, pauseCoveredUIForm, null);
         }
 
         /// <summary>
@@ -574,10 +547,10 @@ namespace ET
         /// <param name="uiGroupName">界面组名称。</param>
         /// <param name="userData">用户自定义数据。</param>
         /// <returns>界面的序列编号。</returns>
-        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, string uiFormAssetName, string uiGroupName, object userData)
+        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, UIType uiType, object userData)
         {
             //默认优先级为0
-            return await self.OpenUIForm(uiFormAssetName, uiGroupName, 0, false, userData);
+            return await self.OpenUIForm(uiType, 0, false, userData);
         }
 
         /// <summary>
@@ -588,9 +561,9 @@ namespace ET
         /// <param name="priority">加载界面资源的优先级。</param>
         /// <param name="pauseCoveredUIForm">是否暂停被覆盖的界面。</param>
         /// <returns>界面的序列编号。</returns>
-        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, string uiFormAssetName, string uiGroupName, int priority, bool pauseCoveredUIForm)
+        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, UIType uiType, int priority, bool pauseCoveredUIForm)
         {
-            return await self.OpenUIForm(uiFormAssetName, uiGroupName, priority, pauseCoveredUIForm, null);
+            return await self.OpenUIForm(uiType, priority, pauseCoveredUIForm, null);
         }
 
         /// <summary>
@@ -601,9 +574,9 @@ namespace ET
         /// <param name="priority">加载界面资源的优先级。</param>
         /// <param name="userData">用户自定义数据。</param>
         /// <returns>界面的序列编号。</returns>
-        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, string uiFormAssetName, string uiGroupName, int priority, object userData)
+        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, UIType uiType, int priority, object userData)
         {
-            return await self.OpenUIForm(uiFormAssetName, uiGroupName, priority, false, userData);
+            return await self.OpenUIForm(uiType, priority, false, userData);
         }
 
         /// <summary>
@@ -614,10 +587,10 @@ namespace ET
         /// <param name="pauseCoveredUIForm">是否暂停被覆盖的界面。</param>
         /// <param name="userData">用户自定义数据。</param>
         /// <returns>界面的序列编号。</returns>
-        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, string uiFormAssetName, string uiGroupName, bool pauseCoveredUIForm, object userData)
+        public async static ETTask<UIForm> OpenUIForm(this UIComponent self, UIType uiType, bool pauseCoveredUIForm, object userData)
         {
             //默认优先级为0
-            return await self.OpenUIForm(uiFormAssetName, uiGroupName, 0, pauseCoveredUIForm, userData);
+            return await self.OpenUIForm(uiType, 0, pauseCoveredUIForm, userData);
         }
 
         /// <summary>
@@ -629,28 +602,34 @@ namespace ET
         /// <param name="pauseCoveredUIForm">是否暂停被覆盖的界面。</param>
         /// <param name="userData">用户自定义数据。</param>
         /// <returns>界面的序列编号。</returns>
-        public static async ETTask<UIForm> OpenUIForm(this UIComponent self, string uiFormAssetName, string uiGroupName, int priority, bool pauseCoveredUIForm, object userData)
+        public static async ETTask<UIForm> OpenUIForm(this UIComponent self, UIType uiType, int priority, bool pauseCoveredUIForm, object userData)
         {
-            if (string.IsNullOrEmpty(uiFormAssetName))
+            var config = ConfigComponent.Instance.Tables.UIConfigCategory.Get((int)uiType);
+            if (string.IsNullOrEmpty(config.AssetName))
             {
-                throw new GameFrameworkException("UI form asset name is invalid.");
+                throw new GameFrameworkException("Config:UI form asset name is invalid.");
             }
 
-            if (string.IsNullOrEmpty(uiGroupName))
+            if (string.IsNullOrEmpty(config.AssetPath))
+            {
+                throw new GameFrameworkException("Config:UI form asset path is invalid.");
+            }
+
+            if (string.IsNullOrEmpty(config.UIGroupName))
             {
                 throw new GameFrameworkException("UI group name is invalid.");
             }
 
-            UIGroup uiGroup = (UIGroup)self.GetUIGroup(uiGroupName);
+            UIGroup uiGroup = (UIGroup)self.GetUIGroup(config.UIGroupName);
 
             if (uiGroup == null)
             {
-                throw new GameFrameworkException(Utility.Text.Format("UI group '{0}' is not exist.Please First Create UIGroup", uiGroupName));
+                throw new GameFrameworkException(Utility.Text.Format("UI group '{0}' is not exist.Please First Create UIGroup", config.UIGroupName));
             }
 
             int serialId = ++self.m_Serial;
-            self.m_UIFormsBeingLoaded.Add(serialId, uiFormAssetName);
-            return await self.LoadUIFormAsync(uiFormAssetName, uiGroup, serialId, uiFormAssetName, pauseCoveredUIForm, userData);
+            self.m_UIFormsBeingLoaded.Add(serialId, config.AssetName);
+            return await self.LoadUIFormAsync(uiType, config.AssetPath, uiGroup, serialId, config.AssetName, pauseCoveredUIForm, userData);
         }
 
         /// <summary>
@@ -713,7 +692,7 @@ namespace ET
             }
 
             uiGroup.RemoveUIForm(uiForm);
-            uiForm.OnClose(self.m_IsShutdown, userData);
+            UIEventComponent.Instance.GetUIEventHandler(uiForm.uiType).OnClose(uiForm,self.m_IsShutdown, userData);
             uiGroup.Refresh();
 
             Game.EventSystem.Publish(new UICommonEventType.CloseUIFormCompleteEventArgs());
@@ -788,7 +767,7 @@ namespace ET
 
             uiGroup.RefocusUIForm(uiForm, userData);
             uiGroup.Refresh();
-            uiForm.OnRefocus(userData);
+            UIEventComponent.Instance.GetUIEventHandler(uiForm.uiType).OnRefocus(uiForm, userData);
         }
 
         /// <summary>

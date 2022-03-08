@@ -35,22 +35,12 @@ namespace ET
         /// <param name="pauseCoveredUIForm">是否暂停被覆盖的界面。</param>
         /// <param name="isNewInstance">是否是新实例。</param>
         /// <param name="userData">用户自定义数据。</param>
-        public static void OnInit(this UIForm self,int serialId, string uiFormAssetName, bool pauseCoveredUIForm, bool isNewInstance, object userData)
+        public static void OnInit(this UIForm self,int serialId, string uiFormAssetName, bool pauseCoveredUIForm, object userData)
         {
             self.m_SerialId = serialId;
             self.m_UIFormAssetName = uiFormAssetName;
             self.m_DepthInUIGroup = 0;
             self.m_PauseCoveredUIForm = pauseCoveredUIForm;
-            self.m_OriginalLayer = self.obj.layer;
-
-            if (self.m_CachedTransform == null)
-            {
-                self.m_CachedTransform = self.obj.transform;
-            }
-            if (!isNewInstance)
-            {
-                return;
-            }
         }
 
         /// <summary>
@@ -74,9 +64,13 @@ namespace ET
         /// <summary>
         /// 界面打开。
         /// </summary>
-        /// <param name="userData">用户自定义数据。</param>
-        public static void OnOpen(this UIForm self,object userData)
+        public static void OnOpen(this UIForm self)
         {
+            self.m_OriginalLayer = self.obj.layer;
+            if (self.m_CachedTransform == null)
+            {
+                self.m_CachedTransform = self.obj.transform;
+            }
             try
             {
                 self.m_Available = true;

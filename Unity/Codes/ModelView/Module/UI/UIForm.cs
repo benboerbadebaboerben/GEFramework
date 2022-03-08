@@ -9,6 +9,7 @@ namespace ET
 {
     public class UIForm : Entity,IAwake, IUpdate
     {
+        public UIType uiType;
         public GameObject obj;
         /// <summary>
         /// 获取界面序列编号。

@@ -23,6 +23,7 @@ public sealed partial class UIConfig :  Bright.Config.BeanBase
         UIGroupName = _buf.ReadString();
         AllowMultiInstance = _buf.ReadBool();
         PauseCoveredUIForm = _buf.ReadBool();
+        AssetPath = _buf.ReadString();
         PostInit();
     }
 
@@ -55,6 +56,10 @@ public sealed partial class UIConfig :  Bright.Config.BeanBase
     /// 是否暂停被覆盖的界面
     /// </summary>
     public bool PauseCoveredUIForm { get; private set; }
+    /// <summary>
+    /// 资源路径
+    /// </summary>
+    public string AssetPath { get; private set; }
 
     public const int __ID__ = 202324726;
     public override int GetTypeId() => __ID__;
@@ -77,6 +82,7 @@ public sealed partial class UIConfig :  Bright.Config.BeanBase
         + "UIGroupName:" + UIGroupName + ","
         + "AllowMultiInstance:" + AllowMultiInstance + ","
         + "PauseCoveredUIForm:" + PauseCoveredUIForm + ","
+        + "AssetPath:" + AssetPath + ","
         + "}";
     }
     

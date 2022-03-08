@@ -315,13 +315,13 @@ namespace ET
             if (!uiFormInfo.m_Covered)
             {
                 uiFormInfo.m_Covered = true;
-                uiForm.OnCover();
+                UIEventComponent.Instance.GetUIEventHandler(uiForm.uiType).OnCover(uiForm);
             }
 
             if (!uiFormInfo.m_Paused)
             {
                 uiFormInfo.m_Paused = true;
-                uiForm.OnPause();
+                UIEventComponent.Instance.GetUIEventHandler(uiForm.uiType).OnPause(uiForm);
             }
 
             if (self.m_CachedNode != null && self.m_CachedNode.Value == uiForm)
@@ -365,7 +365,7 @@ namespace ET
             while (current != null && current.Value != null)
             {
                 LinkedListNode<UIForm> next = current.Next;
-                current.Value.OnDepthChanged(self.m_Depth, depth--);
+                UIEventComponent.Instance.GetUIEventHandler(current.Value.uiType).OnDepthChanged(current.Value, self.m_Depth, depth--);
                 if (current.Value == null)
                 {
                     return;
@@ -376,7 +376,7 @@ namespace ET
                     if (!current.Value.m_Covered)
                     {
                         current.Value.m_Covered = true;
-                        current.Value.OnCover();
+                        UIEventComponent.Instance.GetUIEventHandler(current.Value.uiType).OnCover(current.Value);
                         if (current.Value == null)
                         {
                             return;
@@ -386,7 +386,7 @@ namespace ET
                     if (!current.Value.m_Paused)
                     {
                         current.Value.m_Paused = true;
-                        current.Value.OnPause();
+                        UIEventComponent.Instance.GetUIEventHandler(current.Value.uiType).OnPause(current.Value);
                         if (current.Value == null)
                         {
                             return;
@@ -398,7 +398,7 @@ namespace ET
                     if (current.Value.m_Paused)
                     {
                         current.Value.m_Paused = false;
-                        current.Value.OnResume();
+                        UIEventComponent.Instance.GetUIEventHandler(current.Value.uiType).OnResume(current.Value);
                         if (current.Value == null)
                         {
                             return;
@@ -415,7 +415,7 @@ namespace ET
                         if (!current.Value.m_Covered)
                         {
                             current.Value.m_Covered = true;
-                            current.Value.OnCover();
+                            UIEventComponent.Instance.GetUIEventHandler(current.Value.uiType).OnCover(current.Value);
                             if (current.Value == null)
                             {
                                 return;
@@ -427,7 +427,7 @@ namespace ET
                         if (current.Value.m_Covered)
                         {
                             current.Value.m_Covered = false;
-                            current.Value.OnReveal();
+                            UIEventComponent.Instance.GetUIEventHandler(current.Value.uiType).OnReveal(current.Value);
                             if (current.Value == null)
                             {
                                 return;
