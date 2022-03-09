@@ -171,10 +171,10 @@ MonoBehaviour:
   data:
   - key: Account
     gameObject: {fileID: 1670632076201042}
-  - key: Password
-    gameObject: {fileID: 1568484768885604}
   - key: LoginBtn
     gameObject: {fileID: 1920061237828514}
+  - key: Password
+    gameObject: {fileID: 1568484768885604}
 --- !u!1 &1568484768885604
 GameObject:
   m_ObjectHideFlags: 0

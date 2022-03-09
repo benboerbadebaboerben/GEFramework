@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace ET
 {
@@ -17,13 +19,11 @@ namespace ET
         //界面打开。
         public static void OnOpen(this UILoginComponent self)
         {
-            
-        }
-
-        //界面轮询。
-        public static void OnUpdate(this UILoginComponent self)
-        {
-
+            var rf = self.GetParent<UIForm>().rf;
+            self.account = rf.Get<GameObject>("Account");
+            self.password = rf.Get<GameObject>("Password");
+            self.loginBtn = rf.Get<GameObject>("LoginBtn").GetComponent<Button>();
+            self.loginBtn.onClick.AddListener(self.OnLoginBtnClick);
         }
 
         //界面关闭。
@@ -72,6 +72,16 @@ namespace ET
         public static void OnDepthChanged(this UILoginComponent self)
         {
 
+        }
+
+        //按钮点击。
+        public static void OnLoginBtnClick(this UILoginComponent self)
+        {
+            LoginHelper.Login(
+                self.DomainScene(),
+                ConstValue.LoginAddress,
+                self.account.GetComponent<InputField>().text,
+                self.password.GetComponent<InputField>().text).Coroutine();
         }
     }
 }

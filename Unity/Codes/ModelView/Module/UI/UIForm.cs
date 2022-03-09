@@ -9,7 +9,14 @@ namespace ET
 {
     public class UIForm : Entity,IAwake, IUpdate
     {
+        /// <summary>
+        /// 界面所处类型。
+        /// </summary>
         public UIType uiType;
+        /// <summary>
+        /// 界面绑定的ReferenceCollector。
+        /// </summary>
+        public ReferenceCollector rf;
         public GameObject obj;
         /// <summary>
         /// 获取界面序列编号。

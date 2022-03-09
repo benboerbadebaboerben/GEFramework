@@ -5,6 +5,7 @@ namespace ET
 {
     public enum UIType
     {
-	    Login = 1
+	    Login = 1,
+        Lobby = 2,
     }
 }

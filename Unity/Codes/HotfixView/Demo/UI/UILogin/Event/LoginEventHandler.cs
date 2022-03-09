@@ -117,6 +117,7 @@ namespace ET
                 throw;
             }
             uiForm.GetParent<UIGroup>().Refresh();
+            uiForm.rf = uiForm.obj.GetComponent<ReferenceCollector>();
         }
 
     }

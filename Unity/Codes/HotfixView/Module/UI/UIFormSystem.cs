@@ -41,6 +41,7 @@ namespace ET
             self.m_UIFormAssetName = uiFormAssetName;
             self.m_DepthInUIGroup = 0;
             self.m_PauseCoveredUIForm = pauseCoveredUIForm;
+            self.rf = null;
         }
 
         /// <summary>
