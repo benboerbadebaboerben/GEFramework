@@ -6,7 +6,7 @@ namespace ET
 	{
 		protected override async ETTask Run(EventType.LoginFinish args)
 		{
-			await args.ZoneScene.GetComponent<UIComponent>().OpenUIForm(UIType.Lobby);
+			await args.ZoneScene.GetComponent<UIComponent>().OpenUIForm(UIType.UILobby);
 		}
 	}
 }

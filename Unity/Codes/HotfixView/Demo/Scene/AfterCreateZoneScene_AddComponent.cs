@@ -7,7 +7,7 @@ namespace ET
             Scene zoneScene = args.ZoneScene;
             zoneScene.AddComponent<UIComponent>();
             zoneScene.AddComponent<UIEventComponent>();
-            await zoneScene.GetComponent<UIComponent>().OpenUIForm(UIType.Login);
+            await zoneScene.GetComponent<UIComponent>().OpenUIForm(UIType.UILogin);
         }
     }
 }

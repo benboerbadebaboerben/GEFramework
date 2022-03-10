@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ET
 {
-	[AUIEvent(UIType.Login)]
+	[AUIEvent(UIType.UILogin)]
 	public  class LoginEventHandler : IAUIEventHandler
 	{
         //初始化界面。

@@ -151,3 +151,11 @@ public class ReferenceCollector: MonoBehaviour, ISerializationCallbackReceiver
 		}
 	}
 }
+
+public class ReferenceModelData
+{
+	public string componentName;
+	public string systemName;
+	public string uiName;
+	public string EventHandler;
+}
