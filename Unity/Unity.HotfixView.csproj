@@ -613,7 +613,6 @@
   <ItemGroup>
     <Folder Include="Codes\HotfixView\Demo\UI\UIHelp\" />
     <Folder Include="Codes\HotfixView\Demo\UI\UILoading\" />
-    <Folder Include="Codes\HotfixView\Demo\UI\UILobby\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
@@ -624,4 +623,4 @@
   </Target>
   -->
 </Project>
-<!--2022/3/10 1:41:23-->
+<!--2022/3/11 0:30:05-->

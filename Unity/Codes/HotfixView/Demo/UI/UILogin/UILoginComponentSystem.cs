@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,11 +78,14 @@ namespace ET
         //按钮点击。
         public static void OnLoginBtnClick(this UILoginComponent self)
         {
-            LoginHelper.Login(
-                self.DomainScene(),
-                ConstValue.LoginAddress,
-                self.account.GetComponent<InputField>().text,
-                self.password.GetComponent<InputField>().text).Coroutine();
+            Log.Error(Path.Combine(UnityEngine.Application.dataPath.Substring(0,
+            UnityEngine.Application.dataPath.LastIndexOf('/')),
+             ""));
+            //LoginHelper.Login(
+            //    self.DomainScene(),
+            //    ConstValue.LoginAddress,
+            //    self.account.GetComponent<InputField>().text,
+            //    self.password.GetComponent<InputField>().text).Coroutine();
         }
     }
 }

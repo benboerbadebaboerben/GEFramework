@@ -1,6 +1,8 @@
+using ET;
 using Scriban;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 //Object并非C#基础中的Object，而是 UnityEngine.Object
@@ -167,7 +169,7 @@ using UnityEngine.UI;
 
 namespace ET
 {
-	public class {{model.componentName}}: Entity, IAwake
+	public class {{model.component_name}}: Entity, IAwake
 	{
 		
 	}
@@ -185,75 +187,65 @@ using UnityEngine.UI;
 
 namespace ET
 {
-    public static class {{model.systemName}}
+    public static class {{model.system_name}}
     {
         //初始化界面。
-        public static void OnInit(this {{model.componentName}} self)
+        public static void OnInit(this {{model.component_name}} self)
         {
             
         }
 
         //界面打开。
-        public static void OnOpen(this {{model.componentName}} self)
+        public static void OnOpen(this {{model.component_name}} self)
         {
 		}
 
 		//界面关闭。
-		public static void OnClose(this {{model.componentName}} self)
+		public static void OnClose(this {{model.component_name}} self)
 		{
 
 		}
 
 		//界面回收。
-		public static void OnRecycle(this {{model.componentName}} self)
+		public static void OnRecycle(this {{model.component_name}} self)
 		{
 
 		}
 
 		//界面暂停。
-		public static void OnPause(this {{model.componentName}} self)
+		public static void OnPause(this {{model.component_name}} self)
 		{
 
 		}
 
 		//界面暂停恢复。
-		public static void OnResume(this {{model.componentName}} self)
+		public static void OnResume(this {{model.component_name}} self)
 		{
 
 		}
 
 		//界面遮挡。
-		public static void OnCover(this {{model.componentName}} self)
+		public static void OnCover(this {{model.component_name}} self)
 		{
 
 		}
 
 		//界面遮挡恢复。
-		public static void OnReveal(this {{model.componentName}} self)
+		public static void OnReveal(this {{model.component_name}} self)
 		{
 
 		}
 
 		//界面激活。
-		public static void OnRefocus(this {{model.componentName}} self)
+		public static void OnRefocus(this {{model.component_name}} self)
 		{
 
 		}
 
 		//界面深度改变。
-		public static void OnDepthChanged(this {{model.componentName}} self)
+		public static void OnDepthChanged(this {{model.component_name}} self)
 		{
 
-		}
-
-		//按钮点击。
-		public static void OnLoginBtnClick(this {{model.componentName}} self)
-		{
-			LoginHelper.Login(
-				self.DomainScene(),
-				ConstValue.LoginAddress,
-				self.account.GetComponent<InputField>().text,
-				self.password.GetComponent<InputField>().text).Coroutine();
 		}
 	}
 }";
@@ -263,14 +255,14 @@ using UnityEngine;
 
 namespace ET
 {
-	[AUIEvent({{model.uiName}})]
-	public  class {{model.EventHandler}} : IAUIEventHandler
+	[AUIEvent(UIType.{{model.ui_name}})]
+	public  class {{model.event_handler}} : IAUIEventHandler
 	{
         //初始化界面。
         public void OnInit(UIForm uiForm, int serialId, string uiFormAssetName, bool pauseCoveredUIForm, object userData)
         {
             uiForm.OnInit(serialId, uiFormAssetName, pauseCoveredUIForm, userData);
-            var childForm = uiForm.AddComponent<{{model.componentName}}>();
+            var childForm = uiForm.AddComponent<{{model.component_name}}>();
             childForm.OnInit();
         }
 
@@ -279,7 +271,7 @@ namespace ET
         {
             InitUIForm(uiForm, obj);
             uiForm.OnOpen();
-            var childForm = uiForm.GetComponent<{{model.componentName}}>();
+            var childForm = uiForm.GetComponent<{{model.component_name}}>();
             childForm.OnOpen();
         }
 
@@ -287,7 +279,7 @@ namespace ET
         public void OnClose(UIForm uiForm, bool isShutdown, object userData)
         {
             uiForm.OnClose(isShutdown,userData);
-            var childForm = uiForm.GetComponent<{{model.componentName}}>();
+            var childForm = uiForm.GetComponent<{{model.component_name}}>();
             childForm.OnClose();
         }
 
@@ -295,7 +287,7 @@ namespace ET
         public void OnRecycle(UIForm uiForm)
         {
             uiForm.OnRecycle();
-            var childForm = uiForm.GetComponent<{{model.componentName}}>();
+            var childForm = uiForm.GetComponent<{{model.component_name}}>();
             childForm.OnRecycle();
         }
 
@@ -303,7 +295,7 @@ namespace ET
         public void OnPause(UIForm uiForm)
         {
             uiForm.OnPause();
-            var childForm = uiForm.GetComponent<{{model.componentName}}>();
+            var childForm = uiForm.GetComponent<{{model.component_name}}>();
             childForm.OnPause();
         }
 
@@ -311,7 +303,7 @@ namespace ET
         public void OnResume(UIForm uiForm)
         {
             uiForm.OnResume();
-            var childForm = uiForm.GetComponent<{{model.componentName}}>();
+            var childForm = uiForm.GetComponent<{{model.component_name}}>();
             childForm.OnResume();
         }
 
@@ -319,7 +311,7 @@ namespace ET
         public void OnCover(UIForm uiForm)
         {
             uiForm.OnCover();
-            var childForm = uiForm.GetComponent<{{model.componentName}}>();
+            var childForm = uiForm.GetComponent<{{model.component_name}}>();
             childForm.OnCover();
         }
 
@@ -327,7 +319,7 @@ namespace ET
         public void OnReveal(UIForm uiForm)
         {
             uiForm.OnReveal();
-            var childForm = uiForm.GetComponent<{{model.componentName}}>();
+            var childForm = uiForm.GetComponent<{{model.component_name}}>();
             childForm.OnReveal();
         }
 
@@ -335,7 +327,7 @@ namespace ET
         public void OnRefocus(UIForm uiForm, object userData)
         {
             uiForm.OnRefocus(userData);
-            var childForm = uiForm.GetComponent<{{model.componentName}}>();
+            var childForm = uiForm.GetComponent<{{model.component_name}}>();
             childForm.OnRefocus();
         }
 
@@ -343,14 +335,14 @@ namespace ET
         public void OnDepthChanged(UIForm uiForm, int uiGroupDepth, int depthInUIGroup)
         {
             uiForm.OnDepthChanged(depthInUIGroup, depthInUIGroup);
-            var childForm = uiForm.GetComponent<{{model.componentName}}>();
+            var childForm = uiForm.GetComponent<{{model.component_name}}>();
             childForm.OnDepthChanged();
         }
 
         //初始化UIForm。
         private void InitUIForm(UIForm uiForm, GameObject obj)
         {
-            var uiComponent = uiForm.ZoneScene().GetComponent<{{model.componentName}}>();
+            var uiComponent = uiForm.ZoneScene().GetComponent<UIComponent>();
             uiForm.obj = obj;
             try
             {
@@ -385,10 +377,43 @@ namespace ET
 }
 
 ";
-		var tpl = Template.Parse(componentText);
-		var res1 = tpl.Render(new ReferenceModelData
+		var referenceModelData = new ReferenceModelData
 		{
-			
-		});
+			uiName = referenceCollector.gameObject.name,
+			componentName = referenceCollector.gameObject.name + "Component",
+			systemName = referenceCollector.gameObject.name + "ComponentSystem",
+			eventHandler = referenceCollector.gameObject.name + "EventHandler"
+		};
+		var tpl1 = Template.Parse(componentText);
+		var res1 = tpl1.Render(new{model = referenceModelData});
+		var filePath1 = Path.Combine(UnityEngine.Application.dataPath.Substring(
+					0, UnityEngine.Application.dataPath.LastIndexOf('/')), Utility.Text.Format("Codes/ModelView/Demo/UI/{0}", referenceModelData.uiName));
+		if (!Directory.Exists(filePath1))
+		{
+			Directory.CreateDirectory(filePath1);
+		}
+		File.WriteAllText(Utility.Text.Format("{0}/{1}.cs", filePath1, referenceModelData.componentName), res1);
+
+		var tpl2 = Template.Parse(systemText);
+		var res2 = tpl2.Render(new { model = referenceModelData });
+		var filePath2 = Path.Combine(UnityEngine.Application.dataPath.Substring(
+			0, UnityEngine.Application.dataPath.LastIndexOf('/')), Utility.Text.Format("Codes/HotfixView/Demo/UI/{0}", referenceModelData.uiName));
+		if (!Directory.Exists(filePath2))
+		{
+			Directory.CreateDirectory(filePath2);
+		}
+		File.WriteAllText(Utility.Text.Format("{0}/{1}.cs", filePath2, referenceModelData.systemName), res2);
+
+		var tpl3 = Template.Parse(handleText);
+		var res3 = tpl3.Render(new { model = referenceModelData });
+		var filePath3 = Path.Combine(UnityEngine.Application.dataPath.Substring(
+			0, UnityEngine.Application.dataPath.LastIndexOf('/')), Utility.Text.Format("Codes/HotfixView/Demo/UI/{0}/Event", referenceModelData.uiName));
+		if (!Directory.Exists(filePath3))
+		{
+			Directory.CreateDirectory(filePath3);
+		}
+		File.WriteAllText(Utility.Text.Format("{0}/{1}.cs", filePath3, referenceModelData.eventHandler), res3);
+
+		EditorUtility.DisplayDialog("提示", "陛下，您的脚本已为您导出成功！！", "朕知道了！");
 	}
 }

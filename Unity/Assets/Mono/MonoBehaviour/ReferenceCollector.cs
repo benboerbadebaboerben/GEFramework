@@ -157,5 +157,5 @@ public class ReferenceModelData
 	public string componentName;
 	public string systemName;
 	public string uiName;
-	public string EventHandler;
+	public string eventHandler;
 }
