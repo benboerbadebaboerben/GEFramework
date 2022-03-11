@@ -335,6 +335,9 @@
     <Reference Include="UnityEditor.LinuxStandalone.Extensions">
       <HintPath>D:\unity2020.2.2\2020.3.14f1c1\Editor\Data\PlaybackEngines\LinuxStandaloneSupport\UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Scriban">
+      <HintPath>Assets\Mono\Scriban.dll</HintPath>
+    </Reference>
     <Reference Include="CommandLine">
       <HintPath>Assets\Plugins\CommandLine.dll</HintPath>
     </Reference>

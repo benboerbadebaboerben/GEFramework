@@ -78,14 +78,12 @@ namespace ET
         //按钮点击。
         public static void OnLoginBtnClick(this UILoginComponent self)
         {
-            Log.Error(Path.Combine(UnityEngine.Application.dataPath.Substring(0,
-            UnityEngine.Application.dataPath.LastIndexOf('/')),
-             ""));
-            //LoginHelper.Login(
-            //    self.DomainScene(),
-            //    ConstValue.LoginAddress,
-            //    self.account.GetComponent<InputField>().text,
-            //    self.password.GetComponent<InputField>().text).Coroutine();
+            //EnterMapHelper.EnterMapAsync(self.ZoneScene()).Coroutine();
+            LoginHelper.Login(
+                self.DomainScene(),
+                ConstValue.LoginAddress,
+                self.account.GetComponent<InputField>().text,
+                self.password.GetComponent<InputField>().text).Coroutine();
         }
     }
 }

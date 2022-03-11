@@ -11,7 +11,7 @@ namespace ET
         {
             uiForm.OnInit(serialId, uiFormAssetName, pauseCoveredUIForm, userData);
             var childForm = uiForm.AddComponent<UILobbyComponent>();
-            childForm.OnInit();
+            childForm?.OnInit();
         }
 
         //界面打开。
@@ -20,7 +20,7 @@ namespace ET
             InitUIForm(uiForm, obj);
             uiForm.OnOpen();
             var childForm = uiForm.GetComponent<UILobbyComponent>();
-            childForm.OnOpen();
+            childForm?.OnOpen();
         }
 
         //界面关闭。
@@ -28,7 +28,7 @@ namespace ET
         {
             uiForm.OnClose(isShutdown,userData);
             var childForm = uiForm.GetComponent<UILobbyComponent>();
-            childForm.OnClose();
+            childForm?.OnClose();
         }
 
         //界面回收。
@@ -36,7 +36,7 @@ namespace ET
         {
             uiForm.OnRecycle();
             var childForm = uiForm.GetComponent<UILobbyComponent>();
-            childForm.OnRecycle();
+            childForm?.OnRecycle();
         }
 
         //界面暂停。
@@ -44,7 +44,7 @@ namespace ET
         {
             uiForm.OnPause();
             var childForm = uiForm.GetComponent<UILobbyComponent>();
-            childForm.OnPause();
+            childForm?.OnPause();
         }
 
         //界面暂停恢复。
@@ -52,7 +52,7 @@ namespace ET
         {
             uiForm.OnResume();
             var childForm = uiForm.GetComponent<UILobbyComponent>();
-            childForm.OnResume();
+            childForm?.OnResume();
         }
 
         //界面遮挡。
@@ -60,7 +60,7 @@ namespace ET
         {
             uiForm.OnCover();
             var childForm = uiForm.GetComponent<UILobbyComponent>();
-            childForm.OnCover();
+            childForm?.OnCover();
         }
 
         //界面遮挡恢复。
@@ -68,7 +68,7 @@ namespace ET
         {
             uiForm.OnReveal();
             var childForm = uiForm.GetComponent<UILobbyComponent>();
-            childForm.OnReveal();
+            childForm?.OnReveal();
         }
 
         //界面激活。
@@ -76,7 +76,7 @@ namespace ET
         {
             uiForm.OnRefocus(userData);
             var childForm = uiForm.GetComponent<UILobbyComponent>();
-            childForm.OnRefocus();
+            childForm?.OnRefocus();
         }
 
         //界面深度改变。
@@ -84,7 +84,7 @@ namespace ET
         {
             uiForm.OnDepthChanged(depthInUIGroup, depthInUIGroup);
             var childForm = uiForm.GetComponent<UILobbyComponent>();
-            childForm.OnDepthChanged();
+            childForm?.OnDepthChanged();
         }
 
         //初始化UIForm。
